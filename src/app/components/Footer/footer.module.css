@@ -1,0 +1,16 @@
+.footer {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.text {
+  font-size: 0.75rem;
+  color: rgb(100 116 139); /* slate-500 */
+}
+
+.company {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: rgb(100 116 139);
+}

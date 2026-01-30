@@ -1,0 +1,170 @@
+.wrapper {
+  display: block;
+  width: 100%;
+  max-width: 496px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 496px;
+  aspect-ratio: 496 / 300;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  padding: 0;
+  transition: opacity 0.15s ease;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(
+    to top,
+    rgba(0 0 0 / 0.85) 0%,
+    rgba(0 0 0 / 0.35) 50%,
+    transparent 100%
+  );
+  border-radius: 0.75rem;
+  pointer-events: none;
+}
+
+.card:hover {
+  opacity: 0.95;
+}
+
+.card.centered {
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.card.centered .overlay {
+  align-items: center;
+  text-align: center;
+  padding: 1.25rem 1rem;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.content.contentCentered {
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: white;
+}
+
+.title.titleGold {
+  color: rgb(253 224 71); /* amber-200 */
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  line-height: 1.375;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.highlight {
+  color: rgb(103 232 249); /* cyan-300 */
+}
+
+.cta {
+  margin-top: 0.5rem;
+  display: inline-block;
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to bottom, rgb(37 99 235), rgb(59 130 246));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Variantes de cor */
+.variantMonster {
+  background: linear-gradient(
+    to right,
+    rgb(15 23 42),
+    rgb(30 41 59),
+    rgb(225 29 72)
+  );
+}
+
+.variantMedmaster {
+  background: rgba(30 41 59 / 0.95);
+}
+
+.variantBlackfriday {
+  background: linear-gradient(
+    to right,
+    rgba(120 53 15 / 0.9),
+    rgba(180 83 9 / 0.9)
+  );
+}
+
+.variantFortes {
+  background: linear-gradient(
+    to right,
+    rgb(69 26 3),
+    rgb(120 53 15),
+    rgb(146 64 14)
+  );
+}
+
+.variantVsl {
+  background: rgba(49 46 129 / 0.8);
+}
+
+.variantEduzz {
+  background: rgba(6 95 70 / 0.9);
+}
+
+.variantTypeform {
+  background: rgb(71 85 105);
+}
+
+.variantWhatsapp {
+  background: rgba(21 128 61 / 0.9);
+}
+
+.variantInternal {
+  border: 1px solid rgb(100 116 139);
+  background: rgba(30 41 59 / 0.8);
+}
+
+.variantDefault {
+  background: rgb(51 65 85);
+}

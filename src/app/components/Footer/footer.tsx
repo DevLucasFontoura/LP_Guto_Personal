@@ -20,11 +20,13 @@ export default function Footer({
   className = "",
 }: FooterProps) {
   return (
-    <footer className={`${styles.footer} ${className}`}>
-      <p className={styles.text}>
-        Copyright © {year} - {text}
-      </p>
-      <p className={styles.company}>Desenvolvido por {company}</p>
+    <footer className={`${styles.footer} ${className}`} role="contentinfo">
+      <div className={styles.inner}>
+        <p className={styles.text}>
+          Copyright © {year} — {text}
+        </p>
+        <p className={styles.company}>Desenvolvido por {company}</p>
+      </div>
     </footer>
   );
 }

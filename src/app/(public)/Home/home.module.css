@@ -1,5 +1,279 @@
-/* Estilos do componente Home (link na bio) - use conforme necessário */
-
-.site {
+/* Página Home - layout estilo imagem (header preto, hero escuro, about creme) */
+.page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Header preto ========== */
+.topHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 4rem;
+  padding: 1rem 1.5rem;
+  background-color: #000;
+}
+
+.logo {
+  position: absolute;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.25em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ========== Hero: fundo escuro + padrão, duas colunas ========== */
+.hero {
+  width: 100%;
+  padding: 3rem 1.5rem 4rem;
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+}
+
+.heroInner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroImageWrap {
+    order: -1;
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heroTitle {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.heroParagraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.heroImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========== About: fundo creme, duas colunas ========== */
+.about {
+  width: 100%;
+  padding: 4rem 1.5rem;
+  background-color: #f5f0e8;
+}
+
+.aboutInner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutImageWrap {
+    max-width: 100%;
+  }
+}
+
+.aboutImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.aboutImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8e0d5 0%, #d4ccc4 100%);
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.aboutTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #171717;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.aboutHighlight {
+  color: #e85d04;
+}
+
+.aboutParagraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #262626;
+  margin: 0;
+}
+
+/* ========== CTA Treinos ========== */
+.ctaSection {
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #171717;
+  margin: 0 0 1.5rem;
+}
+
+.ctaLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.ctaLink {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #000;
+  padding: 0.875rem 2rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ctaLink:hover {
+  background-color: #e85d04;
+}
+
+.ctaLinkSecondary {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background-color: transparent;
+  border: 2px solid #000;
+  padding: 0.75rem 1.75rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.ctaLinkSecondary:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* ========== Números que Importam ========== */
+.numbers {
+  width: 100%;
+  padding: 3rem 1.5rem 4rem;
+  background-color: #0f0f0f;
+  text-align: center;
+}
+
+.numbersTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin: 0 0 2.5rem;
+}
+
+.numbersGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 48rem;
+  margin: 0 auto 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .numbersGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.numberItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.numberValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #e85d04;
+  line-height: 1.1;
+}
+
+.numberLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.numberSublabel {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
 }

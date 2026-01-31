@@ -1,6 +1,6 @@
 import type { CardHomeVariant } from "@/app/components/CardHome/cardHome";
 
-export type HomeLink = {
+export type LinkTreeLink = {
   id: string;
   href: string;
   imageSrc: string;
@@ -13,7 +13,7 @@ export type HomeLink = {
   internal?: boolean;
 };
 
-export const links: HomeLink[] = [
+export const links: LinkTreeLink[] = [
   {
     id: "monster-day-1",
     href: "https://link.monsterday.com.br/md-bio-guto?utm_source=ig&utm_medium=social&utm_content=link_in_bio",

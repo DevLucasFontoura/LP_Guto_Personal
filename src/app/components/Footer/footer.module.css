@@ -1,16 +1,26 @@
+/* Footer no padrão do sistema: fundo preto, texto muted, alinhado ao header/main */
 .footer {
-  margin-top: 3rem;
   width: 100%;
+  padding: 1.5rem 1.5rem 2rem;
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
 
+.inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
 .text {
-  font-size: 0.75rem;
-  color: rgb(100 116 139); /* slate-500 */
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }
 
 .company {
-  margin-top: 0.25rem;
-  font-size: 0.75rem;
-  color: rgb(100 116 139);
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0;
 }

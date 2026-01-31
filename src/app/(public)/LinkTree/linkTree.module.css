@@ -1,0 +1,93 @@
+/* LinkTree - header preto + perfil e links */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Header preto (igual Home) ========== */
+.topHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 4rem;
+  padding: 1rem 1.5rem;
+  background-color: #000;
+}
+
+.logo {
+  position: absolute;
+  left: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #e85d04;
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.25em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ========== Conteúdo principal (fundo escuro como hero Home) ========== */
+.main {
+  width: 100%;
+  padding: 3rem 1.5rem 4rem;
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+  flex: 1;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  max-width: 496px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    max-width: 72rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+}

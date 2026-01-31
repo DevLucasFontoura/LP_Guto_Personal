@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/app/components/CountUp/countUp";
+import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
+import MotionWallpaper from "@/app/components/MotionWallpaper/motionWallpaper";
 import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./home.module.css";
+
+/** URL do perfil do Instagram (troque pelo @ do Guto) */
+const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/gutemberg.personal";
+
+/**
+ * URLs dos 3 posts que aparecem no feed (pegue em: post → ⋮ → Incorporar).
+ * Ex: "https://www.instagram.com/p/ABC123/"
+ */
+const INSTAGRAM_POST_URLS: string[] = [];
 
 const rotatingTexts = [
   "seu treino!",
@@ -16,10 +27,20 @@ const rotatingTexts = [
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Topbar />
-
-      {/* Hero: fundo escuro + padrão, apenas texto */}
+      {/* Hero: wallpaper atrás de tudo + Topbar flutuando + texto */}
       <section className={styles.hero}>
+        <div className={styles.heroWallpaper}>
+          <MotionWallpaper
+            color="#23319f"
+            speed={14}
+            scale={0.4}
+            noiseIntensity={0.8}
+            rotation={0}
+          />
+        </div>
+        <div className={styles.heroTopbar}>
+          <Topbar />
+        </div>
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <h2 className={styles.heroTitle}>
@@ -33,9 +54,6 @@ export default function Home() {
                 />
               </span>
             </h2>
-            <p className={styles.heroParagraph}>
-              [Escreva aqui: texto curto se apresentando como educador físico e atleta de CrossFit, e que você tem um plano e método de treinamento que se encaixam na rotina do aluno para ele alcançar os resultados.]
-            </p>
           </div>
         </div>
       </section>
@@ -54,8 +72,8 @@ export default function Home() {
           </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.aboutTitle}>
-              Eu sou o <span className={styles.aboutHighlight}>PERSONAL</span>{" "}
-              <span className={styles.aboutHighlight}>Gutemberg.</span>
+              Mais conhecido como <span className={styles.aboutHighlight}>Gutemberg.</span>{" "}
+              <span className={styles.aboutHighlight}></span>
             </h2>
             <p className={styles.aboutParagraph}>
               [Escreva aqui: sua trajetória no esporte — ex. ginástica, natação, musculação, travessias, fisiculturismo, CrossFit, títulos (ex.: vice-campeão mundial).]
@@ -121,19 +139,26 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Treinos e Dicas */}
-      <section className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>
-          <span className={styles.ctaTitleHighlight}>Treinos</span> disponíveis
+      {/* Redes sociais — Instagram */}
+      <section className={styles.instagramSection}>
+        <h2 className={styles.instagramTitle}>
+          Me siga no <span className={styles.instagramTitleHighlight}>Instagram</span>
         </h2>
-        <div className={styles.ctaLinks}>
-          <Link href="/LinkTree" className={styles.ctaLink}>
-            Ver treinos e links
-          </Link>
-          <Link href="/dicas" className={styles.ctaLinkSecondary}>
-            Coluna: Corpo em movimento
-          </Link>
-        </div>
+        <p className={styles.instagramSubtitle}>
+          Acompanhe dicas, treinos e o dia a dia.
+        </p>
+        <Link
+          href={INSTAGRAM_PROFILE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.instagramCta}
+        >
+          Seguir no Instagram
+        </Link>
+        <InstagramFeed
+          postUrls={INSTAGRAM_POST_URLS}
+          profileUrl={INSTAGRAM_PROFILE_URL}
+        />
       </section>
 
       <Footer />

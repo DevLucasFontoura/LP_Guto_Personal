@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/app/components/CountUp/countUp";
 import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
@@ -42,11 +44,17 @@ export default function Home() {
       <section className={styles.about}>
         <div className={styles.aboutInner}>
           <div className={styles.aboutImageWrap}>
-            <div className={styles.aboutImagePlaceholder} />
+            <Image
+              src="/img_profile_guto.jpg"
+              alt="Gutemberg - Personal Trainer"
+              fill
+              className={styles.aboutImage}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.aboutTitle}>
-              Eu sou o <span className={styles.aboutHighlight}>TREINADOR</span>{" "}
+              Eu sou o <span className={styles.aboutHighlight}>PERSONAL</span>{" "}
               <span className={styles.aboutHighlight}>Gutemberg.</span>
             </h2>
             <p className={styles.aboutParagraph}>
@@ -62,6 +70,57 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Números que Importam */}
+      <section className={styles.numbers}>
+        <h2 className={styles.numbersTitle}>
+          Números que <span className={styles.numbersTitleHighlight}>Importam</span>
+        </h2>
+        <div className={styles.numbersGrid}>
+          <div className={styles.numberItem}>
+            <span className={styles.numberValue}>
+              +
+              <CountUp
+                to={8}
+                duration={3.5}
+                delay={0}
+                className={styles.countUpNumber}
+              />
+            </span>
+            <span className={styles.numberLabel}>Anos de experiência</span>
+          </div>
+          <div className={styles.numberItem}>
+            <span className={styles.numberValue}>
+              + 
+              <CountUp
+                to={2000}
+                duration={3.5}
+                delay={0.2}
+                separator="."
+                className={styles.countUpNumber}
+              />
+            </span>
+            <span className={styles.numberLabel}>Alunos</span>
+          </div>
+          <div className={styles.numberItem}>
+            <span className={styles.numberValue}>
+              +
+              <CountUp
+                to={5000}
+                duration={3.5}
+                delay={0.4}
+                separator="."
+                className={styles.countUpNumber}
+              />
+            </span>
+            <span className={styles.numberLabel}>Aulas dadas</span>
+          </div>
+        </div>
+        <p className={styles.numbersCta}>
+          Quer fazer parte? Confira os treinos disponíveis abaixo.
+        </p>
+      </section>
+
       {/* Treinos e Dicas */}
       <section className={styles.ctaSection}>
         <h2 className={styles.ctaTitle}>TREINOS DISPONÍVEIS</h2>
@@ -72,28 +131,6 @@ export default function Home() {
           <Link href="/dicas" className={styles.ctaLinkSecondary}>
             Coluna: Corpo em movimento
           </Link>
-        </div>
-      </section>
-
-      {/* Números que Importam */}
-      <section className={styles.numbers}>
-        <h2 className={styles.numbersTitle}>Números que Importam</h2>
-        <div className={styles.numbersGrid}>
-          <div className={styles.numberItem}>
-            <span className={styles.numberValue}>45.000+</span>
-            <span className={styles.numberLabel}>alunos</span>
-            <span className={styles.numberSublabel}>transformados</span>
-          </div>
-          <div className={styles.numberItem}>
-            <span className={styles.numberValue}>100+</span>
-            <span className={styles.numberLabel}>aulas</span>
-            <span className={styles.numberSublabel}>exclusivas</span>
-          </div>
-          <div className={styles.numberItem}>
-            <span className={styles.numberValue}>3+</span>
-            <span className={styles.numberLabel}>anos de pesquisa</span>
-            <span className={styles.numberSublabel}>aplicada</span>
-          </div>
         </div>
       </section>
 

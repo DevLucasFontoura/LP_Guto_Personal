@@ -1,0 +1,176 @@
+/* Página de Contato */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+.content {
+  flex: 1;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  width: 100%;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #171717;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.25rem;
+}
+
+.pageSubtitle {
+  font-size: 0.9375rem;
+  color: #525252;
+  margin: 0 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Formulário */
+.formSection {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+}
+
+.formTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #171717;
+  margin: 0 0 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #262626;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 0.375rem;
+  background: #fff;
+  color: #171717;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #e85d04;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #000;
+  padding: 0.875rem 2rem;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #e85d04;
+}
+
+.success {
+  padding: 1.5rem;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 0.5rem;
+  color: #166534;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Informações de contato */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.infoTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #171717;
+  margin: 0 0 0.25rem;
+}
+
+.infoCard {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e5e5;
+}
+
+.infoLabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #737373;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.infoLink {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e85d04;
+  text-decoration: none;
+}
+
+.infoLink:hover {
+  text-decoration: underline;
+}
+
+.infoText,
+.infoHint {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #525252;
+  margin: 0.5rem 0 0;
+}
+
+.infoHint {
+  font-size: 0.8125rem;
+  color: #737373;
+}

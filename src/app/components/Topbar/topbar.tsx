@@ -30,28 +30,28 @@ export default function Topbar({
 
   return (
     <header className={`${styles.topbar} ${className}`} role="banner">
-      <Link href={logoHref} className={styles.logoLink} aria-label="Voltar ao início">
-        {logo}
-      </Link>
+      <div className={styles.inner}>
+        <Link href={logoHref} className={styles.logoLink} aria-label="Voltar ao início">
+          {logo}
+        </Link>
 
-      <nav className={styles.nav} aria-label="Menu principal">
+        <nav className={styles.nav} aria-label="Menu principal">
         <ul className={styles.menu}>
-          {MENU_ITEMS.map(({ href, label }) => {
-            const isActive = pathname === href;
-            return (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={isActive ? styles.menuLinkActive : styles.menuLink}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {label}
-                </Link>
-              </li>
-            );
-          })}
+          {MENU_ITEMS.map(({ href, label }, index) => (
+            <li key={href} className={styles.menuItem}>
+              {index > 0 && <span className={styles.separator} aria-hidden>|</span>}
+              <Link
+                href={href}
+                className={pathname === href ? styles.menuLinkActive : styles.menuLink}
+                aria-current={pathname === href ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
+      </div>
     </header>
   );
 }

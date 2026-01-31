@@ -1,33 +1,39 @@
-import Image from "next/image";
 import Link from "next/link";
+import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./home.module.css";
+
+const rotatingTexts = [
+  "seu treino!",
+  "seu corpo!",
+  "sua rotina!",
+  "sua evolução!",
+];
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <Topbar />
 
-      {/* Hero: fundo escuro + padrão, duas colunas (texto | foto) */}
+      {/* Hero: fundo escuro + padrão, apenas texto */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <h2 className={styles.heroTitle}>
-              [Escreva aqui: frase de impacto / chamada principal — ex: “Acelere seus resultados e alcance o corpo e saúde que sempre buscou!”]
+              Controle{" "}
+              <span className={styles.rotatingTextWrapper}>
+                <RotatingText
+                  texts={rotatingTexts}
+                  splitBy="characters"
+                  staggerDuration={0.02}
+                  staggerFrom="first"
+                />
+              </span>
             </h2>
             <p className={styles.heroParagraph}>
               [Escreva aqui: texto curto se apresentando como educador físico e atleta de CrossFit, e que você tem um plano e método de treinamento que se encaixam na rotina do aluno para ele alcançar os resultados.]
             </p>
-          </div>
-          <div className={styles.heroImageWrap}>
-            <Image
-              src="/img_profile_guto.jpg"
-              alt="Guto - Treinador"
-              width={400}
-              height={500}
-              className={styles.heroImage}
-            />
           </div>
         </div>
       </section>

@@ -123,7 +123,9 @@ export default function Home() {
 
       {/* Treinos e Dicas */}
       <section className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>TREINOS DISPONÍVEIS</h2>
+        <h2 className={styles.ctaTitle}>
+          <span className={styles.ctaTitleHighlight}>Treinos</span> disponíveis
+        </h2>
         <div className={styles.ctaLinks}>
           <Link href="/LinkTree" className={styles.ctaLink}>
             Ver treinos e links

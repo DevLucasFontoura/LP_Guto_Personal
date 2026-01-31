@@ -5,41 +5,6 @@
   flex-direction: column;
 }
 
-/* ========== Header preto (igual Home) ========== */
-.topHeader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  min-height: 4rem;
-  padding: 1rem 1.5rem;
-  background-color: #000;
-}
-
-.logo {
-  position: absolute;
-  left: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.05em;
-  text-decoration: none;
-}
-
-.logo:hover {
-  color: #e85d04;
-}
-
-.brandName {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 0.25em;
-  margin: 0;
-  text-transform: uppercase;
-}
-
 /* ========== Conteúdo principal (fundo escuro como hero Home) ========== */
 .main {
   width: 100%;

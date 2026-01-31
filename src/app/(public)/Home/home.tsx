@@ -1,16 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/app/components/Footer/footer";
+import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./home.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Header preto com logo e nome */}
-      <header className={styles.topHeader}>
-        <div className={styles.logo}>G</div>
-        <h1 className={styles.brandName}>GUTO</h1>
-      </header>
+      <Topbar />
 
       {/* Hero: fundo escuro + padrão, duas colunas (texto | foto) */}
       <section className={styles.hero}>

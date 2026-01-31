@@ -1,20 +1,14 @@
-import Link from "next/link";
 import CardHome from "@/app/components/CardHome/cardHome";
 import Footer from "@/app/components/Footer/footer";
 import ProfileHeader from "@/app/components/ProfileHeader/profileHeader";
+import Topbar from "@/app/components/Topbar/topbar";
 import { links } from "./data";
 import styles from "./linkTree.module.css";
 
 export default function LinkTree() {
   return (
     <div className={styles.page}>
-      {/* Header preto (mesmo estilo da Home) */}
-      <header className={styles.topHeader}>
-        <Link href="/" className={styles.logo}>
-          G
-        </Link>
-        <h1 className={styles.brandName}>GUTO</h1>
-      </header>
+      <Topbar />
 
       {/* Conteúdo: perfil + cards (fundo escuro como hero da Home) */}
       <section className={styles.main}>

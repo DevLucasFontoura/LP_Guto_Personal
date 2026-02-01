@@ -5,7 +5,7 @@
   flex-direction: column;
 }
 
-/* ========== Hero: MotionWallpaper (silk) + Topbar flutuando + texto ========== */
+/* ========== Hero: imagem de fundo + Topbar flutuando + texto ========== */
 .hero {
   position: relative;
   width: 100%;
@@ -24,6 +24,21 @@
   z-index: 0;
 }
 
+.heroBgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay escuro para legibilidade do texto */
+.heroWallpaper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
 .heroTopbar {
   position: absolute;
   top: 0;
@@ -31,11 +46,6 @@
   right: 0;
   z-index: 10;
   padding: 1rem 1.5rem 0;
-}
-
-.heroWallpaper > div {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 .heroInner {

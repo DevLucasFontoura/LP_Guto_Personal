@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
-import MotionWallpaper from "@/app/components/MotionWallpaper/motionWallpaper";
 import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
@@ -23,25 +22,28 @@ const rotatingTexts = [
   "seu corpo!",
   "sua rotina!",
   "sua evolução!",
+  "sua mente!",
 ];
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Hero: wallpaper atrás de tudo + Topbar flutuando + texto */}
+      {/* Hero: imagem de fundo + Topbar flutuando + texto */}
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
-          <MotionWallpaper
-            color="#23319f"
-            speed={14}
-            scale={0.4}
-            noiseIntensity={0.8}
-            rotation={0}
+          <Image
+            src="/img_home.jpg"
+            alt=""
+            fill
+            priority
+            className={styles.heroBgImage}
+            sizes="100vw"
           />
         </div>
         <div className={styles.heroTopbar}>
           <Topbar />
         </div>
+        
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <h2 className={styles.heroTitle}>
@@ -69,6 +71,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
       {/* Sobre: fundo creme, duas colunas (foto academia | texto) */}
       <section className={styles.about}>
@@ -99,7 +102,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Números que Importam */}
       <section className={styles.numbers}>

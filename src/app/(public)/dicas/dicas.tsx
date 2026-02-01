@@ -1,7 +1,6 @@
-import Link from "next/link";
 import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
-import { postsDicas } from "./data";
+import { dicas } from "./data";
 import styles from "./dicas.module.css";
 
 export default function Dicas() {
@@ -10,47 +9,35 @@ export default function Dicas() {
       <Topbar />
 
       <header className={styles.header}>
-        <h1 className={styles.title}>Dicas de treino</h1>
-        <p className={styles.subtitle}>Corpo em movimento</p>
+        <h1 className={styles.title}>
+          Dicas de <span className={styles.titleHighlight}>treino</span>
+        </h1>
+        <p className={styles.subtitle}>
+          Movimento, recuperação e evolução com consciência
+        </p>
       </header>
 
-      <main className={styles.content}>
+      <main className={styles.main}>
         <p className={styles.intro}>
-          Aqui você encontra vários posts com dicas de treino, movimento e
-          bem-estar. Conteúdo <strong>Corpo em movimento</strong> para você
-          evoluir com segurança e consciência.
+          Conteúdo para você evoluir com segurança. Aqui você encontra dicas
+          práticas de aquecimento, alongamento, frequência de treino, descanso e
+          progressão de carga.
         </p>
 
-        <section className={styles.grid}>
-          {postsDicas.map((post) => (
-            <article key={post.id} className={styles.card}>
-              <h2 className={styles.cardTitle}>{post.title}</h2>
-              <p className={styles.cardExcerpt}>{post.excerpt}</p>
-              <div className={styles.cardFooter}>
-                {post.date && (
-                  <span className={styles.cardDate}>{post.date}</span>
-                )}
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.cardLink}
-                >
-                  Ver no Instagram
-                </a>
-              </div>
+        <section className={styles.grid} aria-label="Lista de dicas">
+          {dicas.map((dica) => (
+            <article key={dica.id} className={styles.card}>
+              <span className={styles.cardBadge}>Dica</span>
+              <h2 className={styles.cardTitle}>{dica.title}</h2>
+              <p className={styles.cardExcerpt}>{dica.excerpt}</p>
+              {dica.date && (
+                <time className={styles.cardDate} dateTime={dica.date}>
+                  {dica.date}
+                </time>
+              )}
             </article>
           ))}
         </section>
-
-        <nav className={styles.nav}>
-          <Link href="/" className={styles.navLink}>
-            Voltar ao início
-          </Link>
-          <Link href="/LinkTree" className={styles.navLink}>
-            Ver treinos e links
-          </Link>
-        </nav>
       </main>
 
       <Footer />

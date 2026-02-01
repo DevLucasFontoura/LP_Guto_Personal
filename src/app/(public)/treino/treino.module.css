@@ -3,16 +3,15 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* Mesmo fundo escuro da Home para a Topbar e o menu mobile */
+  background-color: #1c1c1c;
 }
 
 /* ========== Conteúdo principal (fundo escuro como hero Home) ========== */
 .main {
   width: 100%;
   padding: 3rem 1.5rem 4rem;
-  background-color: #1a1a1a;
-  background-image:
-    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+  background-color: #1c1c1c;
   flex: 1;
 }
 

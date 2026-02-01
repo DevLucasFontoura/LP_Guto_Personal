@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Topbar from "@/app/components/Topbar/topbar";
 import Footer from "@/app/components/Footer/footer";
+import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import styles from "./contato.module.css";
 
 export default function Contato() {
@@ -29,7 +29,7 @@ export default function Contato() {
 
   return (
     <div className={styles.page}>
-      <Topbar />
+      <PublicHeader />
 
       <div className={styles.content}>
         <h1 className={styles.pageTitle}>Contato</h1>

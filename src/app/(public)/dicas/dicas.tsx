@@ -1,12 +1,12 @@
 import Footer from "@/app/components/Footer/footer";
-import Topbar from "@/app/components/Topbar/topbar";
+import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import { dicas } from "./data";
 import styles from "./dicas.module.css";
 
 export default function Dicas() {
   return (
     <div className={styles.page}>
-      <Topbar />
+      <PublicHeader />
 
       <header className={styles.header}>
         <h1 className={styles.title}>

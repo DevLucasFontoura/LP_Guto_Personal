@@ -1,14 +1,14 @@
 import CardHome from "@/app/components/CardHome/cardHome";
 import Footer from "@/app/components/Footer/footer";
 import ProfileHeader from "@/app/components/ProfileHeader/profileHeader";
-import Topbar from "@/app/components/Topbar/topbar";
+import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import { links } from "./data";
 import styles from "./treino.module.css";
 
 export default function Treino() {
   return (
     <div className={styles.page}>
-      <Topbar />
+      <PublicHeader />
 
       {/* Conteúdo: perfil + cards de links (fundo escuro como hero da Home) */}
       <section className={styles.main}>

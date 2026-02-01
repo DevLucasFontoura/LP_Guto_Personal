@@ -1,0 +1,31 @@
+/* Mesma top bar da Home: Gutemberg + menu (estilo heroHeader/heroName/heroTopbar) */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+  background-color: #1a1a1a;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 10vw, 4rem);
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.name:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.topbarWrap {
+  flex-shrink: 0;
+  padding: 0;
+}

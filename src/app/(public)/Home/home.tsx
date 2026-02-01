@@ -6,7 +6,7 @@ import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
 import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
-import Topbar from "@/app/components/Topbar/topbar";
+import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import styles from "./home.module.css";
 
 /**
@@ -42,7 +42,9 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      {/* Hero: imagem de fundo + Topbar flutuando + texto */}
+      <PublicHeader className={styles.headerOverHero} />
+
+      {/* Hero: imagem de fundo + texto */}
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
           <Image
@@ -53,12 +55,6 @@ export default function Home() {
             className={styles.heroBgImage}
             sizes="100vw"
           />
-        </div>
-        <div className={styles.heroHeader}>
-          <p className={styles.heroName} aria-hidden>Gutemberg</p>
-          <div className={styles.heroTopbar}>
-            <Topbar logo="" />
-          </div>
         </div>
 
         <div className={styles.heroInner}>

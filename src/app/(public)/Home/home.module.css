@@ -1,8 +1,19 @@
 /* Página Home - layout estilo imagem (header preto, hero escuro, about creme) */
 .page {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Na Home: header por cima da sessão 01 (hero), fundo transparente */
+.page .headerOverHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: transparent !important;
 }
 
 /* ========== Hero: imagem de fundo + Topbar flutuando + texto ========== */

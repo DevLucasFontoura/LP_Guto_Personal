@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
 import MotionWallpaper from "@/app/components/MotionWallpaper/motionWallpaper";
@@ -8,14 +7,15 @@ import Footer from "@/app/components/Footer/footer";
 import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./home.module.css";
 
-/** URL do perfil do Instagram (troque pelo @ do Guto) */
-const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/gutemberg.personal";
-
 /**
  * URLs dos 3 posts que aparecem no feed (pegue em: post → ⋮ → Incorporar).
  * Ex: "https://www.instagram.com/p/ABC123/"
  */
-const INSTAGRAM_POST_URLS: string[] = [];
+const INSTAGRAM_POST_URLS: string[] = [
+  "https://www.instagram.com/p/Cd3qC3rJ29c/",
+  "https://www.instagram.com/p/CpsQh5oOQ6e/",
+  "https://www.instagram.com/p/DN_5twNDTi7/"
+];
 
 const rotatingTexts = [
   "seu treino!",
@@ -147,18 +147,7 @@ export default function Home() {
         <p className={styles.instagramSubtitle}>
           Acompanhe dicas, treinos e o dia a dia.
         </p>
-        <Link
-          href={INSTAGRAM_PROFILE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.instagramCta}
-        >
-          Seguir no Instagram
-        </Link>
-        <InstagramFeed
-          postUrls={INSTAGRAM_POST_URLS}
-          profileUrl={INSTAGRAM_PROFILE_URL}
-        />
+        <InstagramFeed postUrls={INSTAGRAM_POST_URLS} />
       </section>
 
       <Footer />

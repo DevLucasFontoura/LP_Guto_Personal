@@ -7,7 +7,6 @@ import styles from "./topbar.module.css";
 const MENU_ITEMS = [
   { href: "/", label: "Início" },
   { href: "/Treino", label: "Treino" },
-  { href: "/LinkTree", label: "Links" },
   { href: "/Dicas", label: "Dicas" },
   { href: "/Contato", label: "Contato" },
 ] as const;

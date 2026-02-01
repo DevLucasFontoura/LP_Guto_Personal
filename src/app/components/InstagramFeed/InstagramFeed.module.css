@@ -58,6 +58,13 @@
   width: 100%;
 }
 
+/* Em telas maiores, mesma altura para todos os cards */
+@media (min-width: 900px) {
+  .feed {
+    grid-auto-rows: 520px;
+  }
+}
+
 .embedWrap {
   min-height: 320px;
   display: flex;
@@ -65,9 +72,23 @@
   justify-content: center;
 }
 
+@media (min-width: 900px) {
+  .embedWrap {
+    min-height: unset;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 .embedWrap :global(.instagram-media) {
   min-width: 100% !important;
   max-width: 100% !important;
+}
+
+/* Faz o iframe do embed preencher o card (mesma altura) */
+.embedWrap :global(iframe) {
+  min-height: 100% !important;
+  height: 100% !important;
 }
 
 .placeholder {

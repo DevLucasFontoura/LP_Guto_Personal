@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
 import RotatingText from "@/app/components/RotatingText/RotatingText";
@@ -25,7 +27,19 @@ const rotatingTexts = [
   "sua mente!",
 ];
 
+const MOBILE_BREAKPOINT = 768;
+
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   return (
     <div className={styles.page}>
       {/* Hero: imagem de fundo + Topbar flutuando + texto */}
@@ -43,7 +57,7 @@ export default function Home() {
         <div className={styles.heroHeader}>
           <p className={styles.heroName} aria-hidden>Gutemberg</p>
           <div className={styles.heroTopbar}>
-            <Topbar />
+            <Topbar logo="" />
           </div>
         </div>
 
@@ -56,16 +70,22 @@ export default function Home() {
                   <RotatingText
                     texts={rotatingTexts}
                     splitBy="characters"
-                    staggerDuration={0.02}
+                    staggerDuration={isMobile ? 0.045 : 0.02}
                     staggerFrom="first"
+                    rotationInterval={isMobile ? 3200 : 2000}
+                    transition={
+                      isMobile
+                        ? { type: "spring", damping: 22, stiffness: 160 }
+                        : { type: "spring", damping: 25, stiffness: 300 }
+                    }
                   />
                 </span>
               </h2>
             </div>
             <div className={styles.heroCtaBlock}>
-              <Link href="/Treino" className={styles.heroCtaPrimary}>
-                Começar agora!
-              </Link>
+              <a href="#sessao-02" className={styles.heroCtaPrimary}>
+                Conheça o meu trabalho!
+              </a>
             </div>
             <div className={styles.heroSubtitleBlock}>
               <p className={styles.heroSubtitle}>
@@ -78,7 +98,7 @@ export default function Home() {
 
 
       {/* Sobre: fundo creme, duas colunas (foto academia | texto) */}
-      <section className={styles.about}>
+      <section id="sessao-02" className={styles.about}>
         <div className={styles.aboutInner}>
           <div className={styles.aboutImageWrap}>
             <Image
@@ -103,12 +123,17 @@ export default function Home() {
             <p className={styles.aboutParagraph}>
               [Escreva aqui: encerramento — que você tem um plano para quem tem pouca disponibilidade ou quer se dedicar a fundo e conquistar os resultados.]
             </p>
+            <div className={styles.aboutCtaBlock}>
+              <a href="#sessao-03" className={styles.aboutCta}>
+                Veja os índices do meu trabalho
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Números que Importam */}
-      <section className={styles.numbers}>
+      <section id="sessao-03" className={styles.numbers}>
         <h2 className={styles.numbersTitle}>
           Números que <span className={styles.numbersTitleHighlight}>Importam</span>
         </h2>

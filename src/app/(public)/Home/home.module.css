@@ -9,7 +9,7 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 85vh;
+  min-height: 100vh;
   padding: 0 1.5rem 4rem;
   padding-top: 5.5rem;
   overflow: hidden;
@@ -70,23 +70,22 @@
 }
 
 @media (min-width: 769px) {
-  .heroHeader {
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  .hero {
+    justify-content: flex-end;
+    padding-bottom: 4rem;
+  }
+
+  .heroInner {
+    justify-content: flex-end;
+    padding-bottom: 0;
+  }
+
+  .heroBgImage {
+    object-position: center 25%;
   }
 
   .heroName {
-    text-align: center;
-    width: 100%;
-  }
-
-  .heroTopbar {
-    position: absolute;
-    top: 5rem;
-    left: 0;
-    right: 0;
-    padding: 1rem 1.5rem 0;
+    text-align: left;
   }
 }
 
@@ -125,6 +124,16 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
+@media (min-width: 769px) {
+  .heroTitleBlock {
+    margin-top: 6rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(3.75rem, 9.5vw, 5.5rem);
+  }
+}
+
 .rotatingTextWrapper {
   display: inline-block;
   color: var(--color-home-page);
@@ -132,7 +141,7 @@
 }
 
 .heroSubtitleBlock {
-  margin-top: 9rem;
+  margin-top: 5rem;
   margin-bottom: 0;
 }
 
@@ -223,7 +232,7 @@
   }
 
   .heroSubtitleBlock {
-    margin-top: 7rem;
+    margin-top: 3rem;
     margin-bottom: 0;
   }
 
@@ -297,6 +306,28 @@
   line-height: 1.7;
   color: #262626;
   margin: 0;
+}
+
+.aboutCtaBlock {
+  margin-top: 0.5rem;
+}
+
+.aboutCta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #171717;
+  background-color: var(--color-home-page);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(var(--color-home-page-rgb), 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aboutCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(var(--color-home-page-rgb), 0.45);
 }
 
 /* ========== Redes sociais — Instagram ========== */

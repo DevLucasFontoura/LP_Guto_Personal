@@ -32,7 +32,7 @@ function HamburgerIcon({ open }: { open: boolean }) {
 }
 
 export default function Topbar({
-  logo = "Gutemberg Personal",
+  logo = "Gutemberg",
   logoHref = "/",
   className = "",
 }: TopbarProps) {
@@ -54,10 +54,12 @@ export default function Topbar({
 
   return (
     <header className={`${styles.topbar} ${className}`} role="banner">
-      <div className={styles.inner}>
-        <Link href={logoHref} className={styles.logoLink} aria-label="Voltar ao início">
-          {logo}
-        </Link>
+      <div className={`${styles.inner} ${!logo ? styles.innerNoLogo : ""}`}>
+        {logo ? (
+          <Link href={logoHref} className={styles.logoLink} aria-label="Voltar ao início">
+            {logo}
+          </Link>
+        ) : null}
 
         <button
           type="button"

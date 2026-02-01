@@ -31,14 +31,19 @@ const MOBILE_BREAKPOINT = 768;
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
     setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
+
+  /* Só usa valores de mobile após mount para evitar hydration mismatch (server vs client) */
+  const useMobileValues = hasMounted && isMobile;
 
   return (
     <div className={styles.page}>
@@ -66,11 +71,11 @@ export default function Home() {
                   <RotatingText
                     texts={rotatingTexts}
                     splitBy="characters"
-                    staggerDuration={isMobile ? 0.045 : 0.02}
+                    staggerDuration={useMobileValues ? 0.045 : 0.02}
                     staggerFrom="first"
-                    rotationInterval={isMobile ? 3200 : 2000}
+                    rotationInterval={useMobileValues ? 3200 : 2000}
                     transition={
-                      isMobile
+                      useMobileValues
                         ? { type: "spring", damping: 22, stiffness: 160 }
                         : { type: "spring", damping: 25, stiffness: 300 }
                     }

@@ -9,6 +9,7 @@ const MENU_ITEMS = [
   { href: "/", label: "Início" },
   { href: "/Treino", label: "Treino" },
   { href: "/Dicas", label: "Dicas" },
+  { href: "/Alunos", label: "Alunos" },
   { href: "/Contato", label: "Contato" },
 ] as const;
 

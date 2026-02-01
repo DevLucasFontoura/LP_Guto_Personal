@@ -39,13 +39,55 @@
   pointer-events: none;
 }
 
-.heroTopbar {
+.heroHeader {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  padding: 1rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 0;
+  gap: 1rem;
+}
+
+.heroName {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.heroTopbar {
+  flex-shrink: 0;
+  padding: 0;
+}
+
+@media (min-width: 769px) {
+  .heroHeader {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .heroName {
+    text-align: center;
+    width: 100%;
+  }
+
+  .heroTopbar {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem 0;
+  }
 }
 
 .heroInner {
@@ -65,6 +107,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
+  gap: 4rem;
+}
+
+.heroTitleBlock {
+  margin-bottom: 0;
+  margin-top: -7rem;
 }
 
 .heroTitle {
@@ -82,13 +131,27 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.7);
 }
 
+.heroSubtitleBlock {
+  margin-top: 9rem;
+  margin-bottom: 0;
+}
+
 .heroSubtitle {
-  margin: 2rem 0 1.5rem;
-  max-width: 28rem;
-  font-size: clamp(0.9375rem, 2vw, 1.125rem);
+  margin: 0;
+  max-width: 32rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.heroCtaBlock {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
 .heroCta {
@@ -105,7 +168,7 @@
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 9999px;
+  border-radius: 0.375rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -130,6 +193,44 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-color: #fff;
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: flex-end;
+    padding-bottom: 0.25rem;
+    min-height: 100vh;
+  }
+
+  .heroHeader {
+    padding-bottom: 1rem;
+  }
+
+  .heroInner {
+    flex: 1;
+    padding-top: 0;
+    justify-content: flex-end;
+    padding-bottom: 0.25rem;
+  }
+
+  .heroContent {
+    gap: 4rem;
+  }
+
+  .heroTitleBlock {
+    margin-bottom: 0;
+    margin-top: -4rem;
+  }
+
+  .heroSubtitleBlock {
+    margin-top: 7rem;
+    margin-bottom: 0;
+  }
+
+  .heroCtaBlock {
+    margin-top: 3rem;
+    margin-bottom: 0;
+  }
 }
 
 /* ========== About: fundo creme, duas colunas ========== */

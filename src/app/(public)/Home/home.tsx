@@ -40,33 +40,37 @@ export default function Home() {
             sizes="100vw"
           />
         </div>
-        <div className={styles.heroTopbar}>
-          <Topbar />
+        <div className={styles.heroHeader}>
+          <p className={styles.heroName} aria-hidden>Gutemberg</p>
+          <div className={styles.heroTopbar}>
+            <Topbar />
+          </div>
         </div>
-        
+
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
-            <h2 className={styles.heroTitle}>
-              Controle{" "}
-              <span className={styles.rotatingTextWrapper}>
-                <RotatingText
-                  texts={rotatingTexts}
-                  splitBy="characters"
-                  staggerDuration={0.02}
-                  staggerFrom="first"
-                />
-              </span>
-            </h2>
-            <p className={styles.heroSubtitle}>
-              Personal trainer para quem quer resultados de verdade. Treinos, dicas e acompanhamento.
-            </p>
-            <div className={styles.heroCta}>
+            <div className={styles.heroTitleBlock}>
+              <h2 className={styles.heroTitle}>
+                Controle{" "}
+                <span className={styles.rotatingTextWrapper}>
+                  <RotatingText
+                    texts={rotatingTexts}
+                    splitBy="characters"
+                    staggerDuration={0.02}
+                    staggerFrom="first"
+                  />
+                </span>
+              </h2>
+            </div>
+            <div className={styles.heroCtaBlock}>
               <Link href="/Treino" className={styles.heroCtaPrimary}>
-                Ver treinos
+                Começar agora!
               </Link>
-              <Link href="/Contato" className={styles.heroCtaSecondary}>
-                Fale comigo
-              </Link>
+            </div>
+            <div className={styles.heroSubtitleBlock}>
+              <p className={styles.heroSubtitle}>
+                Personal trainer para quem quer resultados de verdade. Treinos, dicas e acompanhamento.
+              </p>
             </div>
           </div>
         </div>

@@ -61,8 +61,8 @@
 }
 
 .card:hover {
-  border-color: #e85d04;
-  box-shadow: 0 4px 12px rgba(232, 93, 4, 0.12);
+  border-color: var(--color-home-page);
+  box-shadow: 0 4px 12px rgba(var(--color-home-page-rgb), 0.12);
 }
 
 .cardTitle {
@@ -99,7 +99,7 @@
 .cardLink {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #e85d04;
+  color: var(--color-home-page);
   text-decoration: none;
 }
 

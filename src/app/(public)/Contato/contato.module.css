@@ -85,7 +85,7 @@
 .select:focus,
 .textarea:focus {
   outline: none;
-  border-color: #e85d04;
+  border-color: var(--color-home-page);
 }
 
 .textarea {
@@ -107,7 +107,7 @@
 }
 
 .button:hover {
-  background-color: #e85d04;
+  background-color: var(--color-home-page);
 }
 
 .success {
@@ -154,7 +154,7 @@
 .infoLink {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #e85d04;
+  color: var(--color-home-page);
   text-decoration: none;
 }
 

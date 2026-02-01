@@ -81,6 +81,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Cor de destaque da página inicial — altere aqui para mudar verde/laranja em todo o site */
+  --color-home-page: #e85d04;
+  --color-home-page-rgb: 137, 232, 4;
 }
 
 .dark {

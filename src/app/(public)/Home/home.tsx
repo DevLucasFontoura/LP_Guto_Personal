@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
 import MotionWallpaper from "@/app/components/MotionWallpaper/motionWallpaper";
@@ -54,6 +55,17 @@ export default function Home() {
                 />
               </span>
             </h2>
+            <p className={styles.heroSubtitle}>
+              Personal trainer para quem quer resultados de verdade. Treinos, dicas e acompanhamento.
+            </p>
+            <div className={styles.heroCta}>
+              <Link href="/Treino" className={styles.heroCtaPrimary}>
+                Ver treinos
+              </Link>
+              <Link href="/Contato" className={styles.heroCtaSecondary}>
+                Fale comigo
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -34,7 +34,7 @@
 }
 
 .logoLink:hover {
-  color: #89e804;
+  color: var(--color-home-page);
 }
 
 .nav {
@@ -82,13 +82,13 @@
 }
 
 .menuLinkActive {
-  color: #89e804;
+  color: var(--color-home-page);
   font-weight: 600;
 }
 
 .menuLinkActive:hover {
-  color: #89e804;
-  background-color: rgba(232, 93, 4, 0.15);
+  color: var(--color-home-page);
+  background-color: rgba(var(--color-home-page-rgb), 0.15);
 }
 
 /* Botão hambúrguer — visível só no mobile */
@@ -113,7 +113,7 @@
 }
 
 .menuTrigger:focus-visible {
-  outline: 2px solid #89e804;
+  outline: 2px solid var(--color-home-page);
   outline-offset: 2px;
 }
 

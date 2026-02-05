@@ -7,10 +7,10 @@ import styles from "./topbar.module.css";
 
 const MENU_ITEMS = [
   { href: "/", label: "Início" },
-  { href: "/Treino", label: "Treino" },
-  { href: "/Dicas", label: "Dicas" },
-  { href: "/Alunos", label: "Alunos" },
-  { href: "/Contato", label: "Contato" },
+  { href: "/treino", label: "Treino" },
+  { href: "/dicas", label: "Dicas" },
+  { href: "/alunos", label: "Alunos" },
+  { href: "/contato", label: "Contato" },
 ] as const;
 
 export type TopbarProps = {

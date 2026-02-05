@@ -1,4 +1,4 @@
-import Home from "@/app/(public)/Home/home";
+import Home from "@/app/(public)/home/home";
 
 export default function RootPage() {
   return <Home />;

@@ -22,7 +22,7 @@ const ABOUT_TEXT =
 export default function Home() {
   return (
     <div className={styles.page}>
-      <PublicHeader className={styles.headerOverHero} />
+      <PublicHeader noSpacer />
 
       {/* Hero: duas imagens fixas — qual aparece é controlado só por CSS (media query) */}
       <section className={styles.hero}>
@@ -48,19 +48,14 @@ export default function Home() {
           <div className={styles.heroContent}>
             <div className={styles.heroTitleBlock}>
               <h1 className={styles.heroTitle}>
-                O CORPO DOS SEUS SONHOS COMEÇA HOJE!
+                O CORPO DOS
+                <br />
+                SEUS SONHOS COMEÇA HOJE!
               </h1>
-            </div>
-            <div className={styles.heroSubtitleBlock}>
-              <p className={styles.heroSubtitle}>
-                Já são mais de <strong>2.000 alunos transformados</strong>. Seja
-                você iniciante ou focado em resultados, o trabalho do{" "}
-                <strong>Gutemberg</strong> é a escolha certa para você!
-              </p>
             </div>
             <div className={styles.heroCtaBlock}>
               <a href="/planos" className={styles.heroCtaPrimary}>
-                Nossos planos
+                Veja nossos planos
                 <span className={styles.heroCtaArrow} aria-hidden>↗</span>
               </a>
             </div>

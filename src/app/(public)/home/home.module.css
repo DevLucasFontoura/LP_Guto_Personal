@@ -6,16 +6,6 @@
   flex-direction: column;
 }
 
-/* Na Home: header por cima da sessão 01 (hero), fundo transparente */
-.page .headerOverHero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  background: transparent !important;
-}
-
 /* ========== Hero: imagem de fundo + Topbar flutuando + texto ========== */
 .hero {
   position: relative;
@@ -144,8 +134,9 @@
 }
 
 .heroTitle {
-  font-size: clamp(1.75rem, 5vw, 3rem);
-  font-weight: 700;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  font-weight: 400;
   color: #fff;
   line-height: 1.2;
   margin: 0;
@@ -160,7 +151,7 @@
   }
 
   .heroTitle {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(3.5rem, 9vw, 7rem);
   }
 }
 

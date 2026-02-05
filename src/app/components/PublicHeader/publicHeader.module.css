@@ -1,5 +1,10 @@
-/* Mesma top bar da Home: Gutemberg + menu (estilo heroHeader/heroName/heroTopbar) */
+/* Header fixo no topo em todas as páginas públicas */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   width: 100%;
   display: flex;
   align-items: center;
@@ -7,6 +12,30 @@
   padding: 1.25rem 1.5rem;
   gap: 1rem;
   background: transparent;
+  transition: background 0.3s ease;
+}
+
+/* Quando rola a página: gradiente forte em cima, sumindo suave até transparente embaixo */
+.headerScrolled {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.3) 80%,
+    transparent 100%
+  ) !important;
+}
+
+/* Espaço reservado para o conteúdo não ficar atrás do header fixo */
+.headerSpacer {
+  height: 5.5rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 769px) {
+  .headerSpacer {
+    height: 6rem;
+  }
 }
 
 .name {

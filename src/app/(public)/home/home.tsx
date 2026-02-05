@@ -16,6 +16,9 @@ const INSTAGRAM_POST_URLS: string[] = [
   "https://www.instagram.com/p/DN_5twNDTi7/"
 ];
 
+const ABOUT_TEXT =
+  "Gutemberg Rodrigues é personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna \"Corpo em Movimento\", no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.";
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -50,7 +53,9 @@ export default function Home() {
             </div>
             <div className={styles.heroSubtitleBlock}>
               <p className={styles.heroSubtitle}>
-                Já são mais de <strong>2.000 alunos transformados</strong>. Seja você iniciante ou focado em resultados, o trabalho do <strong>Gutemberg</strong> é a escolha certa para você!
+                Já são mais de <strong>2.000 alunos transformados</strong>. Seja
+                você iniciante ou focado em resultados, o trabalho do{" "}
+                <strong>Gutemberg</strong> é a escolha certa para você!
               </p>
             </div>
             <div className={styles.heroCtaBlock}>
@@ -62,7 +67,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Sobre: fundo creme, duas colunas (foto academia | texto) */}
       <section id="sessao-02" className={styles.about}>
@@ -78,12 +82,10 @@ export default function Home() {
           </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.aboutTitle}>
-            Gutemberg Rodrigues
-              <span className={styles.aboutHighlight}></span>
+              Mais conhecido como{" "}
+              <span className={styles.aboutHighlight}>Gutemberg.</span>
             </h2>
-            <p className={styles.aboutParagraph}>
-              Gutemberg Rodrigues é personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna &quot;Corpo em Movimento&quot;, no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.
-            </p>
+            <p className={styles.aboutParagraph}>{ABOUT_TEXT}</p>
             <div className={styles.aboutCtaBlock}>
               <a href="#sessao-03" className={styles.aboutCta}>
                 Veja os índices do meu trabalho
@@ -96,7 +98,8 @@ export default function Home() {
       {/* Números que Importam */}
       <section id="sessao-03" className={styles.numbers}>
         <h2 className={styles.numbersTitle}>
-          Números que <span className={styles.numbersTitleHighlight}>Importam</span>
+          Números que{" "}
+          <span className={styles.numbersTitleHighlight}>Importam</span>
         </h2>
         <div className={styles.numbersGrid}>
           <div className={styles.numberItem}>
@@ -120,7 +123,8 @@ export default function Home() {
       {/* Redes sociais — Instagram */}
       <section className={styles.instagramSection}>
         <h2 className={styles.instagramTitle}>
-          Me siga no <span className={styles.instagramTitleHighlight}>Instagram</span>
+          Me siga no{" "}
+          <span className={styles.instagramTitleHighlight}>Instagram</span>
         </h2>
         <p className={styles.instagramSubtitle}>
           Acompanhe dicas, treinos e o dia a dia.

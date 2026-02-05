@@ -17,7 +17,7 @@ const INSTAGRAM_POST_URLS: string[] = [
 ];
 
 const ABOUT_TEXT =
-  "Gutemberg Rodrigues é personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna \"Corpo em Movimento\", no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.";
+  "Sou personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna \"Corpo em Movimento\", no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.";
 
 export default function Home() {
   return (
@@ -82,8 +82,7 @@ export default function Home() {
           </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.aboutTitle}>
-              Mais conhecido como{" "}
-              <span className={styles.aboutHighlight}>Gutemberg.</span>
+              Gutemberg Rodrigues
             </h2>
             <p className={styles.aboutParagraph}>{ABOUT_TEXT}</p>
             <div className={styles.aboutCtaBlock}>

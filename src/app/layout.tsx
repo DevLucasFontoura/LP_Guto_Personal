@@ -18,9 +18,34 @@ const bebasNeue = Bebas_Neue({
   weight: "400",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gutemberg-personal.vercel.app";
+
 export const metadata: Metadata = {
-  title: "Sistema Guto",
-  description: "Sistema dividido em área pública e privada",
+  metadataBase: new URL(siteUrl),
+  title: "Gutemberg Rodrigues - Personal Trainer",
+  description:
+    "Personal trainer em Brasília. Treinos personalizados, avaliação física e acompanhamento para você alcançar seus objetivos.",
+  openGraph: {
+    title: "Gutemberg Rodrigues - Personal Trainer",
+    description:
+      "Personal trainer em Brasília. Treinos personalizados, avaliação física e acompanhamento para você alcançar seus objetivos.",
+    type: "website",
+    images: [
+      {
+        url: "/img_home_vertical.png",
+        width: 1080,
+        height: 1350,
+        alt: "Gutemberg Rodrigues - Personal Trainer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gutemberg Rodrigues - Personal Trainer",
+    description:
+      "Personal trainer em Brasília. Treinos personalizados e acompanhamento.",
+    images: ["/img_home_vertical.png"],
+  },
 };
 
 export default function RootLayout({

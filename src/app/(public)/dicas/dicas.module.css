@@ -50,6 +50,7 @@
   margin: 0 0 2rem;
   padding: 0 0 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: justify;
 }
 
 /* ========== Grid de cards ========== */
@@ -106,8 +107,54 @@
   flex: 1;
 }
 
+.keyPoints {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  flex: 1;
+}
+
+.keyPoints li {
+  margin-bottom: 0.5rem;
+}
+
+.keyPoints li:last-child {
+  margin-bottom: 0;
+}
+
+.cardFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .cardDate {
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.45);
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-home-page);
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.cardLinkIcon {
+  font-size: 1em;
+  opacity: 0.9;
 }
 

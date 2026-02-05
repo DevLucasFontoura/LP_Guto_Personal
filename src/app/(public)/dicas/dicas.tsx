@@ -1,6 +1,7 @@
+import Link from "next/link";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
-import { dicas } from "./data";
+import { materias } from "./data";
 import styles from "./dicas.module.css";
 
 export default function Dicas() {
@@ -10,31 +11,44 @@ export default function Dicas() {
 
       <header className={styles.header}>
         <h1 className={styles.title}>
-          Dicas de <span className={styles.titleHighlight}>treino</span>
+          Dicas e <span className={styles.titleHighlight}>matérias</span>
         </h1>
         <p className={styles.subtitle}>
-          Movimento, recuperação e evolução com consciência
+          Pontos-chave das colunas do Guto em outros canais — leia a matéria completa no site de origem
         </p>
       </header>
 
       <main className={styles.main}>
         <p className={styles.intro}>
-          Conteúdo para você evoluir com segurança. Aqui você encontra dicas
-          práticas de aquecimento, alongamento, frequência de treino, descanso e
-          progressão de carga.
+          Aqui você encontra resumos das matérias que o Gutemberg publica em portais como o RaniNewsTV. Cada card traz os pontos principais; use o link para ler o artigo completo.
         </p>
 
-        <section className={styles.grid} aria-label="Lista de dicas">
-          {dicas.map((dica) => (
-            <article key={dica.id} className={styles.card}>
-              <span className={styles.cardBadge}>Dica</span>
-              <h2 className={styles.cardTitle}>{dica.title}</h2>
-              <p className={styles.cardExcerpt}>{dica.excerpt}</p>
-              {dica.date && (
-                <time className={styles.cardDate} dateTime={dica.date}>
-                  {dica.date}
-                </time>
-              )}
+        <section className={styles.grid} aria-label="Matérias do Guto">
+          {materias.map((materia) => (
+            <article key={materia.id} className={styles.card}>
+              <span className={styles.cardBadge}>{materia.source}</span>
+              <h2 className={styles.cardTitle}>{materia.title}</h2>
+              <ul className={styles.keyPoints}>
+                {materia.keyPoints.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+              <div className={styles.cardFooter}>
+                {materia.date && (
+                  <time className={styles.cardDate} dateTime={materia.date}>
+                    {materia.date}
+                  </time>
+                )}
+                <Link
+                  href={materia.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardLink}
+                >
+                  Ler matéria completa
+                  <span className={styles.cardLinkIcon} aria-hidden>↗</span>
+                </Link>
+              </div>
             </article>
           ))}
         </section>

@@ -1,10 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import CountUp from "@/app/components/CountUp/countUp";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
-import RotatingText from "@/app/components/RotatingText/RotatingText";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import styles from "./home.module.css";
@@ -19,79 +16,48 @@ const INSTAGRAM_POST_URLS: string[] = [
   "https://www.instagram.com/p/DN_5twNDTi7/"
 ];
 
-const rotatingTexts = [
-  "seu treino!",
-  "seu corpo!",
-  "sua rotina!",
-  "sua evolução!",
-  "sua mente!",
-];
-
-const MOBILE_BREAKPOINT = 768;
-
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  /* Só usa valores de mobile após mount para evitar hydration mismatch (server vs client) */
-  const useMobileValues = hasMounted && isMobile;
-
   return (
     <div className={styles.page}>
       <PublicHeader className={styles.headerOverHero} />
 
-      {/* Hero: imagem de fundo + texto */}
+      {/* Hero: duas imagens fixas — qual aparece é controlado só por CSS (media query) */}
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
           <Image
-            src="/img_home.jpg"
-            alt=""
+            src="/img_home_horizontal.png"
+            alt="Gutemberg - Personal Trainer"
             fill
             priority
-            className={styles.heroBgImage}
+            className={styles.heroBgImageDesktop}
+            sizes="100vw"
+          />
+          <Image
+            src="/img_home_vertical.png"
+            alt="Gutemberg - Personal Trainer"
+            fill
+            priority
+            className={styles.heroBgImageMobile}
             sizes="100vw"
           />
         </div>
-
         <div className={styles.heroInner}>
           <div className={styles.heroContent}>
             <div className={styles.heroTitleBlock}>
-              <h2 className={styles.heroTitle}>
-                Controle{" "}
-                <span className={styles.rotatingTextWrapper}>
-                  <RotatingText
-                    texts={rotatingTexts}
-                    splitBy="characters"
-                    staggerDuration={useMobileValues ? 0.045 : 0.02}
-                    staggerFrom="first"
-                    rotationInterval={useMobileValues ? 3200 : 2000}
-                    transition={
-                      useMobileValues
-                        ? { type: "spring", damping: 22, stiffness: 160 }
-                        : { type: "spring", damping: 25, stiffness: 300 }
-                    }
-                  />
-                </span>
-              </h2>
-            </div>
-            <div className={styles.heroCtaBlock}>
-              <a href="#sessao-02" className={styles.heroCtaPrimary}>
-                Conheça o meu trabalho!
-              </a>
+              <h1 className={styles.heroTitle}>
+                O CORPO DOS SEUS SONHOS COMEÇA HOJE!
+              </h1>
             </div>
             <div className={styles.heroSubtitleBlock}>
               <p className={styles.heroSubtitle}>
-                Personal trainer para quem quer resultados de verdade. Treinos, dicas e acompanhamento.
+                Já são mais de <strong>2.000 alunos transformados</strong>. Seja você iniciante ou focado em resultados, o trabalho do <strong>Gutemberg</strong> é a escolha certa para você!
               </p>
+            </div>
+            <div className={styles.heroCtaBlock}>
+              <a href="/planos" className={styles.heroCtaPrimary}>
+                Nossos planos
+                <span className={styles.heroCtaArrow} aria-hidden>↗</span>
+              </a>
             </div>
           </div>
         </div>
@@ -112,17 +78,11 @@ export default function Home() {
           </div>
           <div className={styles.aboutContent}>
             <h2 className={styles.aboutTitle}>
-              Mais conhecido como <span className={styles.aboutHighlight}>Gutemberg.</span>{" "}
+            Gutemberg Rodrigues
               <span className={styles.aboutHighlight}></span>
             </h2>
             <p className={styles.aboutParagraph}>
-              [Escreva aqui: sua trajetória no esporte — ex. ginástica, natação, musculação, travessias, fisiculturismo, CrossFit, títulos (ex.: vice-campeão mundial).]
-            </p>
-            <p className={styles.aboutParagraph}>
-              [Escreva aqui: formação (Educação Física, especializações, Level 1 CrossFit etc.) e que hoje você quer ajudar seus alunos a alcançarem os objetivos por meio da atividade física.]
-            </p>
-            <p className={styles.aboutParagraph}>
-              [Escreva aqui: encerramento — que você tem um plano para quem tem pouca disponibilidade ou quer se dedicar a fundo e conquistar os resultados.]
+              Gutemberg Rodrigues é personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna &quot;Corpo em Movimento&quot;, no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.
             </p>
             <div className={styles.aboutCtaBlock}>
               <a href="#sessao-03" className={styles.aboutCta}>
@@ -140,41 +100,15 @@ export default function Home() {
         </h2>
         <div className={styles.numbersGrid}>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>
-              +
-              <CountUp
-                to={8}
-                duration={3.5}
-                delay={0}
-                className={styles.countUpNumber}
-              />
-            </span>
+            <span className={styles.numberValue}>+8</span>
             <span className={styles.numberLabel}>Anos de experiência</span>
           </div>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>
-              + 
-              <CountUp
-                to={2000}
-                duration={3.5}
-                delay={0.2}
-                separator="."
-                className={styles.countUpNumber}
-              />
-            </span>
+            <span className={styles.numberValue}>+2.000</span>
             <span className={styles.numberLabel}>Alunos</span>
           </div>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>
-              +
-              <CountUp
-                to={5000}
-                duration={3.5}
-                delay={0.4}
-                separator="."
-                className={styles.countUpNumber}
-              />
-            </span>
+            <span className={styles.numberValue}>+5.000</span>
             <span className={styles.numberLabel}>Aulas dadas</span>
           </div>
         </div>

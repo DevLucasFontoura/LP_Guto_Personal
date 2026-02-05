@@ -11,6 +11,7 @@ const MENU_ITEMS = [
   { href: "/dicas", label: "Dicas" },
   { href: "/alunos", label: "Alunos" },
   { href: "/contato", label: "Contato" },
+  { href: "/planos", label: "Planos" },
 ] as const;
 
 export type TopbarProps = {

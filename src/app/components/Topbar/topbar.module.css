@@ -32,6 +32,8 @@
 @media (min-width: 769px) {
   .topbar {
     align-items: center;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
   }
 
   .inner {

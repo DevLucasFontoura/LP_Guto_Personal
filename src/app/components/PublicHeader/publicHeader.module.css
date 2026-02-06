@@ -33,8 +33,13 @@
 }
 
 @media (min-width: 769px) {
+  .header {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
   .headerSpacer {
-    height: 6rem;
+    height: 4.25rem;
   }
 }
 

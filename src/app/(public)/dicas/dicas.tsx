@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import { materias } from "./data";
@@ -14,25 +15,38 @@ export default function Dicas() {
           Dicas e <span className={styles.titleHighlight}>matérias</span>
         </h1>
         <p className={styles.subtitle}>
-          Pontos-chave das colunas do Guto em outros canais — leia a matéria completa no site de origem
+          Assista ao vídeo e confira as matérias do Guto em outros canais
         </p>
       </header>
 
       <main className={styles.main}>
-        <p className={styles.intro}>
-          Aqui você encontra resumos das matérias que o Gutemberg publica em portais como o RaniNewsTV. Cada card traz os pontos principais; use o link para ler o artigo completo.
-        </p>
-
         <section className={styles.grid} aria-label="Matérias do Guto">
           {materias.map((materia) => (
             <article key={materia.id} className={styles.card}>
               <span className={styles.cardBadge}>{materia.source}</span>
               <h2 className={styles.cardTitle}>{materia.title}</h2>
-              <ul className={styles.keyPoints}>
-                {materia.keyPoints.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
+              {materia.videoId && (
+                <div className={styles.cardVideoWrapper}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${materia.videoId}?rel=0`}
+                    title={`Vídeo: ${materia.title}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className={styles.videoIframe}
+                  />
+                </div>
+              )}
+              {materia.image && !materia.videoId && (
+                <div className={styles.cardImageWrapper}>
+                  <Image
+                    src={materia.image}
+                    alt=""
+                    fill
+                    className={styles.cardImage}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              )}
               <div className={styles.cardFooter}>
                 {materia.date && (
                   <time className={styles.cardDate} dateTime={materia.date}>

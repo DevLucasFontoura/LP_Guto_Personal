@@ -28,7 +28,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
           <Image
-            src="/img_home_horizontal.png"
+            src="/img/home/img_home_horizontal.png"
             alt="Gutemberg - Personal Trainer"
             fill
             priority
@@ -36,7 +36,7 @@ export default function Home() {
             sizes="100vw"
           />
           <Image
-            src="/img_home_vertical.png"
+            src="/img/home/img_home_vertical.png"
             alt="Gutemberg - Personal Trainer"
             fill
             priority
@@ -68,7 +68,7 @@ export default function Home() {
         <div className={styles.aboutInner}>
           <div className={styles.aboutImageWrap}>
             <Image
-              src="/img_profile_guto.jpg"
+              src="/img/home/img_profile_guto.jpg"
               alt="Gutemberg - Personal Trainer"
               fill
               className={styles.aboutImage}

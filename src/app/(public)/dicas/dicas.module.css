@@ -43,14 +43,79 @@
   padding: 0 1.5rem 3rem;
 }
 
-.intro {
-  font-size: 1.0625rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0 0 2rem;
-  padding: 0 0 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: justify;
+/* Card do vídeo — ocupa toda a largura do grid, título + vídeo */
+.videoCard {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.videoCard:hover {
+  border-color: rgba(var(--color-home-page-rgb), 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Vídeo YouTube — proporção 16:9, responsivo, dentro do card */
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.videoIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Vídeo dentro do card da matéria (16:9) */
+.cardVideoWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
+
+.cardVideoWrapper .videoIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Imagem dentro do card da matéria */
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
+
+.cardImage {
+  object-fit: cover;
 }
 
 /* ========== Grid de cards ========== */
@@ -97,31 +162,6 @@
   color: #fff;
   margin: 0 0 0.75rem;
   line-height: 1.35;
-}
-
-.cardExcerpt {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0 0 1rem;
-  flex: 1;
-}
-
-.keyPoints {
-  margin: 0 0 1.25rem;
-  padding-left: 1.25rem;
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.8);
-  flex: 1;
-}
-
-.keyPoints li {
-  margin-bottom: 0.5rem;
-}
-
-.keyPoints li:last-child {
-  margin-bottom: 0;
 }
 
 .cardFooter {

@@ -84,13 +84,14 @@
 
 @media (min-width: 769px) {
   .hero {
-    justify-content: flex-end;
+    justify-content: center;
     padding-bottom: 4rem;
   }
 
   .heroInner {
-    justify-content: flex-end;
+    justify-content: center;
     padding-bottom: 0;
+    margin-bottom: 14vh;
   }
 
   .heroBgImageDesktop {

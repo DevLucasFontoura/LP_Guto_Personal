@@ -12,7 +12,7 @@
   padding: 1.25rem 1.5rem;
   gap: 1rem;
   background: transparent;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* Quando rola a página: gradiente forte em cima, sumindo suave até transparente embaixo */
@@ -36,6 +36,10 @@
   .header {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
+  }
+
+  .header.headerHidden {
+    transform: translateY(-100%);
   }
 
   .headerSpacer {

@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./publicHeader.module.css";
 
 const SCROLL_THRESHOLD = 60;
+const HIDE_AFTER_SCROLL = 80;
+const DESKTOP_BREAKPOINT = 769;
 
 type PublicHeaderProps = {
   /** Classe extra (ex.: para posicionar por cima do hero na Home) */
@@ -17,12 +19,31 @@ type PublicHeaderProps = {
 /**
  * Header fixo no topo: nome "Gutemberg" + menu (Topbar).
  * Em todas as páginas públicas: transparente no topo, gradiente escuro ao rolar.
+ * No desktop: esconde ao rolar para baixo, reaparece ao rolar para cima.
  */
 export default function PublicHeader({ className, noSpacer = false }: PublicHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > SCROLL_THRESHOLD);
+
+      if (window.innerWidth >= DESKTOP_BREAKPOINT) {
+        if (y <= HIDE_AFTER_SCROLL) {
+          setHeaderHidden(false);
+        } else if (y > lastScrollY.current) {
+          setHeaderHidden(true);
+        } else {
+          setHeaderHidden(false);
+        }
+        lastScrollY.current = y;
+      } else {
+        setHeaderHidden(false);
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,7 +52,7 @@ export default function PublicHeader({ className, noSpacer = false }: PublicHead
   return (
     <>
       <header
-        className={`${styles.header} ${scrolled ? styles.headerScrolled : ""} ${className ?? ""}`.trim()}
+        className={`${styles.header} ${scrolled ? styles.headerScrolled : ""} ${headerHidden ? styles.headerHidden : ""} ${className ?? ""}`.trim()}
         role="banner"
       >
         <Link href="/" className={styles.name} aria-label="Gutemberg - Voltar ao início">

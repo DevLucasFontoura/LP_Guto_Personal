@@ -20,6 +20,8 @@ export type Materia = {
   videoId?: string;
   /** Caminho da imagem (ex: "/img/dicas/img_guto_praia.webp") — quando definido, a imagem aparece no card */
   image?: string;
+  /** Posição do enquadramento da imagem: "top" | "center" | "bottom"; omitido usa o centro */
+  imagePosition?: "top" | "center" | "bottom";
 };
 
 export const materias: Materia[] = [
@@ -45,19 +47,25 @@ export const materias: Materia[] = [
     url: "https://raninewstv.com.br/importancia-atividade-fisica-em-todas-as-idades",
     date: "06/09/2025",
     source: "RaniNewsTV — Corpo em Movimento",
+    image: "/img/dicas/img_guto_academia_aluna.jpeg",
+    imagePosition: "top",
   },
-  {
-    id: "4",
-    title: "Musculação na terceira idade: saúde, autonomia e qualidade de vida",
-    url: "https://raninewstv.com.br/musculacao-na-terceira-idade-saude-autonomia",
-    date: "13/12/2025",
-    source: "RaniNewsTV — Corpo em Movimento",
-  },
+    {
+      id: "4",
+      title: "Musculação na terceira idade: saúde, autonomia e qualidade de vida",
+      url: "https://raninewstv.com.br/musculacao-na-terceira-idade-saude-autonomia",
+      date: "13/12/2025",
+      source: "RaniNewsTV — Corpo em Movimento",
+      image: "/img/dicas/img_guto_musculacao_homem.jpeg",
+      imagePosition: "bottom",
+    },
   {
     id: "5",
     title: "Novembro Azul: a importância da musculação na saúde do homem",
     url: "https://raninewstv.com.br/%f0%9f%92%99-novembro-azul-a-importancia-da-musculacao-na-saude-do-homem",
     date: "07/11/2025",
     source: "RaniNewsTV — Corpo em Movimento",
+    image: "/img/dicas/img_guto_homem_costas.jpg",
+    imagePosition: "top"
   },
 ];

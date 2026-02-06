@@ -38,8 +38,7 @@
 .main {
   flex: 1;
   width: 100%;
-  max-width: 56rem;
-  margin: 0 auto;
+  margin: 0;
   padding: 0 1.5rem 3rem;
 }
 
@@ -118,12 +117,26 @@
   object-fit: cover;
 }
 
+.cardImageTop {
+  object-position: top;
+}
+
+.cardImageBottom {
+  object-position: bottom;
+}
+
 /* ========== Grid de cards ========== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   margin-bottom: 2.5rem;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .card {

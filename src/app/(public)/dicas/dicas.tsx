@@ -42,7 +42,7 @@ export default function Dicas() {
                     src={materia.image}
                     alt=""
                     fill
-                    className={styles.cardImage}
+                    className={`${styles.cardImage} ${materia.imagePosition === "top" ? styles.cardImageTop : ""} ${materia.imagePosition === "bottom" ? styles.cardImageBottom : ""}`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>

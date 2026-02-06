@@ -4,6 +4,7 @@ import Image from "next/image";
 import InstagramFeed from "@/app/components/InstagramFeed/InstagramFeed";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
+import CountUp from "@/app/components/CountUp/countUp";
 import styles from "./home.module.css";
 
 /**
@@ -13,7 +14,6 @@ import styles from "./home.module.css";
 const INSTAGRAM_POST_URLS: string[] = [
   "https://www.instagram.com/p/Cd3qC3rJ29c/",
   "https://www.instagram.com/p/CpsQh5oOQ6e/",
-  "https://www.instagram.com/p/DN_5twNDTi7/"
 ];
 
 const ABOUT_TEXT =
@@ -97,20 +97,26 @@ export default function Home() {
         </h2>
         <div className={styles.numbersGrid}>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>+8</span>
+            <span className={styles.numberValue}>
+              +<CountUp to={8} duration={1.5} />
+            </span>
             <span className={styles.numberLabel}>Anos de experiência</span>
           </div>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>+2.000</span>
+            <span className={styles.numberValue}>
+              +<CountUp to={2000} separator="." duration={2} />
+            </span>
             <span className={styles.numberLabel}>Alunos</span>
           </div>
           <div className={styles.numberItem}>
-            <span className={styles.numberValue}>+5.000</span>
+            <span className={styles.numberValue}>
+              +<CountUp to={5000} separator="." duration={2} />
+            </span>
             <span className={styles.numberLabel}>Aulas dadas</span>
           </div>
         </div>
         <p className={styles.numbersCta}>
-          Quer fazer parte? Confira os treinos disponíveis abaixo.
+          Venha fazer parte da nossa família e conquiste o seu corpo dos sonhos!
         </p>
       </section>
 

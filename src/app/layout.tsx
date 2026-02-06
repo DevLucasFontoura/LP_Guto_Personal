@@ -25,6 +25,11 @@ export const metadata: Metadata = {
   title: "Gutemberg Rodrigues - Personal Trainer",
   description:
     "Personal trainer em Brasília. Treinos personalizados, avaliação física e acompanhamento para você alcançar seus objetivos.",
+  // Ícone usado na aba e na prévia ao compartilhar (evita o logo da Vercel)
+  icons: {
+    icon: [{ url: "/img_profile_guto.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/img_profile_guto.jpg", type: "image/jpeg" }],
+  },
   openGraph: {
     title: "Gutemberg Rodrigues - Personal Trainer",
     description:

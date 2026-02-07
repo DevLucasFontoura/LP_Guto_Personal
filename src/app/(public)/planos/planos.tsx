@@ -56,7 +56,7 @@ export default function Planos() {
               )}
               <div className={styles.cardTitleRow}>
                 {(() => {
-                  const Icon = PLANO_ICONS[plano.id] ?? IoDocumentTextOutline;
+                  const Icon = PLANO_ICONS[plano.id] ?? IoBarbellOutline;
                   return <Icon className={styles.cardTitleIcon} aria-hidden />;
                 })()}
                 <h2 className={styles.cardTitle}>{plano.title}</h2>

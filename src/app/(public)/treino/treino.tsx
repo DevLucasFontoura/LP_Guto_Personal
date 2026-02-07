@@ -1,9 +1,9 @@
-import CardHome from "@/app/components/CardHome/cardHome";
+import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/app/components/Footer/footer";
-import ProfileHeader from "@/app/components/ProfileHeader/profileHeader";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import { TREINO } from "@/lib/Constants/treino";
-import { links } from "./data";
+import { treinos } from "./data";
 import styles from "./treino.module.css";
 
 export default function Treino() {
@@ -11,30 +11,71 @@ export default function Treino() {
     <div className={styles.page}>
       <PublicHeader />
 
-      <section className={styles.main}>
-        <div className={styles.wrapper}>
-          <div className={styles.content}>
-            <ProfileHeader
-              src={TREINO.PROFILE_IMAGE_PATH}
-              alt={TREINO.PROFILE_IMAGE_ALT}
-              username={TREINO.PROFILE_USERNAME}
-            />
+      <header className={styles.header}>
+        <h1 className={styles.title}>
+          {TREINO.TITULO_PREFIXO}{" "}
+          <span className={styles.titleHighlight}>{TREINO.TITULO_DESTAQUE}</span>
+        </h1>
+        <p className={styles.subtitle}>{TREINO.SUBTITULO}</p>
+      </header>
 
-            <div className={styles.cards}>
-              {links.map((item) => (
-                <CardHome
-                  key={item.id}
-                  href={item.href}
-                  imageSrc={item.imageSrc}
-                  imageAlt={item.imageAlt}
-                  variant={item.variant}
-                  internal={item.internal ?? false}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <main className={styles.main}>
+        <section
+          className={styles.grid}
+          aria-label={TREINO.SECAO_ARIA_LABEL}
+        >
+          {treinos.map((treino) => {
+            const cardContent = (
+              <>
+                <div className={styles.cardImageWrap}>
+                  <Image
+                    src={treino.imageSrc}
+                    alt={treino.imageAlt}
+                    fill
+                    className={styles.cardImage}
+                    sizes="(max-width: 768px) 100vw, (max-width: 960px) 50vw, 33vw"
+                  />
+                  {treino.badge && (
+                    <span className={styles.cardBadge}>{treino.badge}</span>
+                  )}
+                </div>
+                <div className={styles.cardBody}>
+                  <h2 className={styles.cardTitle}>{treino.title}</h2>
+                  <p className={styles.cardDescription}>{treino.description}</p>
+                  <span className={styles.cardCta}>
+                    {TREINO.CARD_CTA}
+                    <span className={styles.cardCtaIcon} aria-hidden>→</span>
+                  </span>
+                </div>
+              </>
+            );
+
+            if (treino.external) {
+              return (
+                <a
+                  key={treino.id}
+                  href={treino.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.card}
+                >
+                  {cardContent}
+                </a>
+              );
+            }
+
+            return (
+              <Link
+                key={treino.id}
+                href={treino.href}
+                className={styles.card}
+              >
+                {cardContent}
+              </Link>
+            );
+          })}
+        </section>
+      </main>
 
       <Footer />
     </div>

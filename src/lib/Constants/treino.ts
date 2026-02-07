@@ -1,8 +1,11 @@
 /**
- * Constantes da página Treino (links / perfil).
+ * Constantes da página Treino (treinos digitais à venda).
  */
 export const TREINO = {
-  PROFILE_IMAGE_PATH: "/img_profile_guto.jpg",
-  PROFILE_IMAGE_ALT: "Guto",
-  PROFILE_USERNAME: "@GUTOGALAMBA",
+  TITULO_PREFIXO: "Treinos",
+  TITULO_DESTAQUE: "digitais",
+  SUBTITULO:
+    "Treinos elaborados por mim para você fazer onde e quando quiser. Escolha o que combina com seu objetivo.",
+  SECAO_ARIA_LABEL: "Treinos disponíveis",
+  CARD_CTA: "Quero este treino",
 };

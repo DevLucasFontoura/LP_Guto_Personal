@@ -137,17 +137,30 @@
   margin: 0;
 }
 
-.cardMetrics {
+.cardRow {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
   margin: 0;
+}
+
+.cardRow + .cardRow {
+  margin-top: 0.5rem;
+}
+
+.cardRowDivider {
+  width: 1px;
+  height: 1.5rem;
+  background: rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
 }
 
 .metric {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .metricLabel {
@@ -164,18 +177,12 @@
   color: #000;
 }
 
-.cardObjetivo {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.8);
-  margin: 0;
-  line-height: 1.5;
+.metric + .metric {
+  margin-top: 0.5rem;
 }
 
-.cardDepoimento {
-  font-size: 0.8125rem;
-  color: rgba(0, 0, 0, 0.65);
-  font-style: italic;
-  margin: 0;
-  padding-top: 0.5rem;
+.cardObjetivoBlock {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

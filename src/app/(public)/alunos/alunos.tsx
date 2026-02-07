@@ -40,30 +40,37 @@ function AlunoCard({ aluno }: { aluno: AlunoResultado }) {
           {aluno.nome}
         </h2>
 
-        <div className={styles.cardMetrics}>
+        <div className={styles.cardRow}>
           <div className={styles.metric}>
             <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_TEMPO}</span>
             <span className={styles.metricValue}>{aluno.tempoProjeto}</span>
           </div>
-          <div className={styles.metric}>
-            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_ANTES}</span>
-            <span className={styles.metricValue}>{aluno.pesoAntes}{ALUNOS.UNIDADE_KG}</span>
-          </div>
-          <div className={styles.metric}>
-            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_DEPOIS}</span>
-            <span className={styles.metricValue}>{aluno.pesoDepois}{ALUNOS.UNIDADE_KG}</span>
-          </div>
+          <span className={styles.cardRowDivider} aria-hidden />
           <div className={styles.metric}>
             <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_VARIACAO}</span>
             <span className={styles.metricValue}>{pesoTexto}</span>
           </div>
         </div>
 
+        <div className={styles.cardRow}>
+          <div className={styles.metric}>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_ANTES}</span>
+            <span className={styles.metricValue}>{aluno.pesoAntes}{ALUNOS.UNIDADE_KG}</span>
+          </div>
+          <span className={styles.cardRowDivider} aria-hidden />
+          <div className={styles.metric}>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_DEPOIS}</span>
+            <span className={styles.metricValue}>{aluno.pesoDepois}{ALUNOS.UNIDADE_KG}</span>
+          </div>
+        </div>
+
         {aluno.objetivo && (
-          <p className={styles.cardObjetivo}>{aluno.objetivo}</p>
-        )}
-        {aluno.depoimento && (
-          <p className={styles.cardDepoimento}>"{aluno.depoimento}"</p>
+          <div className={styles.cardObjetivoBlock}>
+            <div className={styles.metric}>
+              <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_OBJETIVO}</span>
+              <span className={styles.metricValue}>{aluno.objetivo}</span>
+            </div>
+          </div>
         )}
       </div>
     </article>

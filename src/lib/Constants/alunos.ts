@@ -29,6 +29,7 @@ export const ALUNOS = {
   METRIC_LABEL_PESO_ANTES: "Peso antes",
   METRIC_LABEL_PESO_DEPOIS: "Peso depois",
   METRIC_LABEL_VARIACAO: "Variação",
+  METRIC_LABEL_OBJETIVO: "Objetivo",
   UNIDADE_KG: " kg",
 
   // —— Card: texto de variação de peso ——

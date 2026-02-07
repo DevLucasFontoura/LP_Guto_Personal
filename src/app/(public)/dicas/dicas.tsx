@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
+import { DICAS } from "@/lib/Constants/dicas";
 import { materias } from "./data";
 import styles from "./dicas.module.css";
 
@@ -12,15 +13,13 @@ export default function Dicas() {
 
       <header className={styles.header}>
         <h1 className={styles.title}>
-          Dicas e <span className={styles.titleHighlight}>matérias</span>
+          {DICAS.TITULO_PREFIXO} <span className={styles.titleHighlight}>{DICAS.TITULO_DESTAQUE}</span>
         </h1>
-        <p className={styles.subtitle}>
-          Assista ao vídeo e confira as matérias do Guto em outros canais
-        </p>
+        <p className={styles.subtitle}>{DICAS.SUBTITULO}</p>
       </header>
 
       <main className={styles.main}>
-        <section className={styles.grid} aria-label="Matérias do Guto">
+        <section className={styles.grid} aria-label={DICAS.SECAO_ARIA_LABEL}>
           {materias.map((materia) => (
             <article key={materia.id} className={styles.card}>
               <span className={styles.cardBadge}>{materia.source}</span>
@@ -59,7 +58,7 @@ export default function Dicas() {
                   rel="noopener noreferrer"
                   className={styles.cardLink}
                 >
-                  Ler matéria completa
+                  {DICAS.CARD_LINK_LER_MATERIA}
                   <span className={styles.cardLinkIcon} aria-hidden>↗</span>
                 </Link>
               </div>

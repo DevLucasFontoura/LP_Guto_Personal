@@ -2,6 +2,7 @@ import CardHome from "@/app/components/CardHome/cardHome";
 import Footer from "@/app/components/Footer/footer";
 import ProfileHeader from "@/app/components/ProfileHeader/profileHeader";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
+import { TREINO } from "@/lib/Constants/treino";
 import { links } from "./data";
 import styles from "./treino.module.css";
 
@@ -10,14 +11,13 @@ export default function Treino() {
     <div className={styles.page}>
       <PublicHeader />
 
-      {/* Conteúdo: perfil + cards de links (fundo escuro como hero da Home) */}
       <section className={styles.main}>
         <div className={styles.wrapper}>
           <div className={styles.content}>
             <ProfileHeader
-              src="/img_profile_guto.jpg"
-              alt="Guto"
-              username="@GUTOGALAMBA"
+              src={TREINO.PROFILE_IMAGE_PATH}
+              alt={TREINO.PROFILE_IMAGE_ALT}
+              username={TREINO.PROFILE_USERNAME}
             />
 
             <div className={styles.cards}>

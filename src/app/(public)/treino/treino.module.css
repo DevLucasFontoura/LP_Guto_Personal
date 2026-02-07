@@ -1,17 +1,15 @@
-/* Página Treino — perfil + links (migrado do LinkTree) */
+/* Página Treino — minimalista fundo branco */
 .page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Mesmo fundo escuro da Home para a Topbar e o menu mobile */
-  background-color: #1c1c1c;
+  background-color: #fff;
 }
 
-/* ========== Conteúdo principal (fundo escuro como hero Home) ========== */
 .main {
   width: 100%;
   padding: 3rem 1.5rem 4rem;
-  background-color: #1c1c1c;
+  background-color: #fff;
   flex: 1;
 }
 

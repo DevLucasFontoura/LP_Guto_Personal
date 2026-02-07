@@ -28,7 +28,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
           <Image
-            src="/img/home/img_home_horizontal.png"
+            src="/img/home/img_home.jpg"
             alt="Gutemberg - Personal Trainer"
             fill
             priority

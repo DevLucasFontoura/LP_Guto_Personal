@@ -44,7 +44,6 @@ export default function Planos() {
                   <span className={styles.cardBadge}>{plano.badge}</span>
                 )}
               </div>
-              <p className={styles.cardValor}>{plano.valor}</p>
               <p className={styles.cardDescription}>{plano.description}</p>
               <Link href="/contato" className={styles.cardCta}>
                 Quero este plano

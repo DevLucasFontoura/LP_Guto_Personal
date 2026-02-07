@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
+import { ALUNOS } from "@/lib/Constants/alunos";
 import { alunos, type AlunoResultado } from "./data";
 import styles from "./alunos.module.css";
 
@@ -8,8 +9,8 @@ function AlunoCard({ aluno }: { aluno: AlunoResultado }) {
   const pesoVariacao = aluno.pesoDepois - aluno.pesoAntes;
   const pesoTexto =
     pesoVariacao <= 0
-      ? `${Math.abs(pesoVariacao)} kg a menos`
-      : `${pesoVariacao} kg a mais`;
+      ? ALUNOS.VARIACAO_KG_A_MENOS(Math.abs(pesoVariacao))
+      : ALUNOS.VARIACAO_KG_A_MAIS(pesoVariacao);
 
   return (
     <article className={styles.card} aria-labelledby={`aluno-name-${aluno.id}`}>
@@ -17,20 +18,20 @@ function AlunoCard({ aluno }: { aluno: AlunoResultado }) {
         <div className={styles.imgWrap}>
           <Image
             src={aluno.imgAntes}
-            alt={`${aluno.nome} antes`}
+            alt={`${aluno.nome}${ALUNOS.ALT_SUFIXO_ANTES}`}
             fill
             sizes="(max-width: 768px) 50vw, 200px"
           />
-          <span className={styles.imgLabel}>Antes</span>
+          <span className={styles.imgLabel}>{ALUNOS.CARD_IMG_LABEL_ANTES}</span>
         </div>
         <div className={styles.imgWrap}>
           <Image
             src={aluno.imgDepois}
-            alt={`${aluno.nome} depois`}
+            alt={`${aluno.nome}${ALUNOS.ALT_SUFIXO_DEPOIS}`}
             fill
             sizes="(max-width: 768px) 50vw, 200px"
           />
-          <span className={styles.imgLabel}>Depois</span>
+          <span className={styles.imgLabel}>{ALUNOS.CARD_IMG_LABEL_DEPOIS}</span>
         </div>
       </div>
 
@@ -41,19 +42,19 @@ function AlunoCard({ aluno }: { aluno: AlunoResultado }) {
 
         <div className={styles.cardMetrics}>
           <div className={styles.metric}>
-            <span className={styles.metricLabel}>Tempo</span>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_TEMPO}</span>
             <span className={styles.metricValue}>{aluno.tempoProjeto}</span>
           </div>
           <div className={styles.metric}>
-            <span className={styles.metricLabel}>Peso antes</span>
-            <span className={styles.metricValue}>{aluno.pesoAntes} kg</span>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_ANTES}</span>
+            <span className={styles.metricValue}>{aluno.pesoAntes}{ALUNOS.UNIDADE_KG}</span>
           </div>
           <div className={styles.metric}>
-            <span className={styles.metricLabel}>Peso depois</span>
-            <span className={styles.metricValue}>{aluno.pesoDepois} kg</span>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_PESO_DEPOIS}</span>
+            <span className={styles.metricValue}>{aluno.pesoDepois}{ALUNOS.UNIDADE_KG}</span>
           </div>
           <div className={styles.metric}>
-            <span className={styles.metricLabel}>Variação</span>
+            <span className={styles.metricLabel}>{ALUNOS.METRIC_LABEL_VARIACAO}</span>
             <span className={styles.metricValue}>{pesoTexto}</span>
           </div>
         </div>
@@ -76,23 +77,17 @@ export default function Alunos() {
 
       <header className={styles.header}>
         <h1 className={styles.title}>
-          Resultados dos <span className={styles.titleHighlight}>alunos</span>
+          {ALUNOS.TITULO_PREFIXO} <span className={styles.titleHighlight}>{ALUNOS.TITULO_DESTAQUE}</span>
         </h1>
-        <p className={styles.subtitle}>
-          Antes e depois, tempo de projeto, evolução de peso e conquistas!
-        </p>
+        <p className={styles.subtitle}>{ALUNOS.SUBTITULO}</p>
       </header>
 
       <main className={styles.main}>
         <hr className={styles.divider} aria-hidden />
 
-        <p className={styles.intro}>
-          Aqui você vê alguns dos resultados de quem treina com acompanhamento
-          personalizado. Cada card mostra fotos antes e depois, duração do
-          projeto, peso inicial e final, e o objetivo alcançado.
-        </p>
+        <p className={styles.intro}>{ALUNOS.INTRO_PARAGRAFO}</p>
 
-        <section className={styles.grid} aria-label="Resultados dos alunos">
+        <section className={styles.grid} aria-label={ALUNOS.SECAO_ARIA_LABEL}>
           {alunos.map((aluno) => (
             <AlunoCard key={aluno.id} aluno={aluno} />
           ))}

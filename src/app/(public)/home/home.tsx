@@ -6,18 +6,7 @@ import Footer from "@/app/components/Footer/footer";
 import PublicHeader from "@/app/components/PublicHeader/publicHeader";
 import CountUp from "@/app/components/CountUp/countUp";
 import styles from "./home.module.css";
-
-/**
- * URLs dos 3 posts que aparecem no feed (pegue em: post → ⋮ → Incorporar).
- * Ex: "https://www.instagram.com/p/ABC123/"
- */
-const INSTAGRAM_POST_URLS: string[] = [
-  "https://www.instagram.com/p/Cd3qC3rJ29c/",
-  "https://www.instagram.com/p/CpsQh5oOQ6e/",
-];
-
-const ABOUT_TEXT =
-  "Sou personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna \"Corpo em Movimento\", no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.";
+import { HOME } from "@/lib/Constants/home";
 
 export default function Home() {
   return (
@@ -28,16 +17,16 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroWallpaper}>
           <Image
-            src="/img/home/img_home.jpg"
-            alt="Gutemberg - Personal Trainer"
+            src={HOME.HERO_IMAGE_DESKTOP_PATH}
+            alt={HOME.HERO_IMAGE_ALT}
             fill
             priority
             className={styles.heroBgImageDesktop}
             sizes="100vw"
           />
           <Image
-            src="/img/home/img_home_vertical.png"
-            alt="Gutemberg - Personal Trainer"
+            src={HOME.HERO_IMAGE_MOBILE_PATH}
+            alt={HOME.HERO_IMAGE_ALT}
             fill
             priority
             className={styles.heroBgImageMobile}
@@ -48,14 +37,14 @@ export default function Home() {
           <div className={styles.heroContent}>
             <div className={styles.heroTitleBlock}>
               <h1 className={styles.heroTitle}>
-                O CORPO DOS
+                {HOME.HERO_TITLE_LINHA_1}
                 <br />
-                SEUS SONHOS COMEÇA HOJE!
+                {HOME.HERO_TITLE_LINHA_2}
               </h1>
             </div>
             <div className={styles.heroCtaBlock}>
               <a href="/planos" className={styles.heroCtaPrimary}>
-                Veja nossos planos
+                {HOME.HERO_CTA_VER_PLANOS}
                 <span className={styles.heroCtaArrow} aria-hidden>↗</span>
               </a>
             </div>
@@ -68,22 +57,18 @@ export default function Home() {
         <div className={styles.aboutInner}>
           <div className={styles.aboutImageWrap}>
             <Image
-              src="/img/home/img_profile_guto.jpg"
-              alt="Gutemberg - Personal Trainer"
+              src={HOME.ABOUT_IMAGE_PROFILE_PATH}
+              alt={HOME.ABOUT_IMAGE_ALT}
               fill
               className={styles.aboutImage}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className={styles.aboutContent}>
-            <h2 className={styles.aboutTitle}>
-              Gutemberg Rodrigues
-            </h2>
-            <p className={styles.aboutParagraph}>{ABOUT_TEXT}</p>
+            <h2 className={styles.aboutTitle}>{HOME.ABOUT_NOME_TITULO}</h2>
+            <p className={styles.aboutParagraph}>{HOME.ABOUT_TEXTO_APRESENTACAO}</p>
             <div className={styles.aboutCtaBlock}>
-              <a href="#sessao-03" className={styles.aboutCta}>
-                Veja os índices do meu trabalho
-              </a>
+              <a href="#sessao-03" className={styles.aboutCta}>{HOME.ABOUT_CTA_INDICES}</a>
             </div>
           </div>
         </div>
@@ -92,44 +77,40 @@ export default function Home() {
       {/* Números que Importam */}
       <section id="sessao-03" className={styles.numbers}>
         <h2 className={styles.numbersTitle}>
-          Números que{" "}
-          <span className={styles.numbersTitleHighlight}>Importam</span>
+          {HOME.NUMBERS_TITULO_PREFIXO}{" "}
+          <span className={styles.numbersTitleHighlight}>{HOME.NUMBERS_TITULO_DESTAQUE}</span>
         </h2>
         <div className={styles.numbersGrid}>
           <div className={styles.numberItem}>
             <span className={styles.numberValue}>
               +<CountUp to={8} duration={1.5} />
             </span>
-            <span className={styles.numberLabel}>Anos de experiência</span>
+            <span className={styles.numberLabel}>{HOME.NUMBERS_LABEL_ANOS_EXPERIENCIA}</span>
           </div>
           <div className={styles.numberItem}>
             <span className={styles.numberValue}>
               +<CountUp to={2000} separator="." duration={2} />
             </span>
-            <span className={styles.numberLabel}>Alunos</span>
+            <span className={styles.numberLabel}>{HOME.NUMBERS_LABEL_ALUNOS}</span>
           </div>
           <div className={styles.numberItem}>
             <span className={styles.numberValue}>
               +<CountUp to={5000} separator="." duration={2} />
             </span>
-            <span className={styles.numberLabel}>Aulas dadas</span>
+            <span className={styles.numberLabel}>{HOME.NUMBERS_LABEL_AULAS_DADAS}</span>
           </div>
         </div>
-        <p className={styles.numbersCta}>
-          Venha fazer parte da nossa família e conquiste o seu corpo dos sonhos!
-        </p>
+        <p className={styles.numbersCta}>{HOME.NUMBERS_CTA_CONVITE}</p>
       </section>
 
       {/* Redes sociais — Instagram */}
       <section className={styles.instagramSection}>
         <h2 className={styles.instagramTitle}>
-          Me siga no{" "}
-          <span className={styles.instagramTitleHighlight}>Instagram</span>
+          {HOME.INSTAGRAM_TITULO_PREFIXO}{" "}
+          <span className={styles.instagramTitleHighlight}>{HOME.INSTAGRAM_TITULO_DESTAQUE}</span>
         </h2>
-        <p className={styles.instagramSubtitle}>
-          Acompanhe dicas, treinos e o dia a dia.
-        </p>
-        <InstagramFeed postUrls={INSTAGRAM_POST_URLS} />
+        <p className={styles.instagramSubtitle}>{HOME.INSTAGRAM_SUBTITULO}</p>
+        <InstagramFeed postUrls={HOME.INSTAGRAM_POST_URLS} />
       </section>
 
       <Footer />

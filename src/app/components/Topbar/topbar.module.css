@@ -78,11 +78,19 @@
 }
 
 .logoLink {
+  display: flex;
+  align-items: center;
   font-size: 1.125rem;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.02em;
   text-decoration: none;
+}
+
+.logoImage {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .logoLink:hover {
@@ -344,6 +352,10 @@
   .inner .logoLink {
     color: #000;
     font-size: 1.375rem;
+  }
+
+  .inner .logoImage {
+    height: 2.25rem;
   }
 
   .inner .logoLink:hover {

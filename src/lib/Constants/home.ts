@@ -9,11 +9,11 @@ export const HOME = {
   HERO_TITLE_LINHA_2: "SEUS SONHOS COMEÇA HOJE!",
   HERO_CTA_VER_PLANOS: "Veja nossos planos",
   HERO_IMAGE_DESKTOP_PATH: "/img/home/img_home.jpg",
-  HERO_IMAGE_MOBILE_PATH: "/img/home/img_home_vertical.png",
+  HERO_IMAGE_MOBILE_PATH: "/img/home/img_home_vertical_01.png",
 
   // —— Sobre (seção sobre o personal) ——
   ABOUT_IMAGE_ALT: "Gutemberg - Personal Trainer",
-  ABOUT_IMAGE_PROFILE_PATH: "/img/home/img_profile_guto.jpg",
+  ABOUT_IMAGE_PROFILE_PATH: "/img/home/img_profile_guto.png",
   ABOUT_NOME_TITULO: "Gutemberg Rodrigues",
   ABOUT_TEXTO_APRESENTACAO:
     "Sou personal trainer brasiliense, formado em Educação Física pela Uniplan, com mais de 8 anos de experiência ajudando pessoas a conquistarem saúde, autoestima e qualidade de vida. Apaixonado por promover bem-estar de forma acessível e prática, assina a coluna \"Corpo em Movimento\", no RaniNewsTV, onde compartilha dicas e reflexões do universo fitness.",

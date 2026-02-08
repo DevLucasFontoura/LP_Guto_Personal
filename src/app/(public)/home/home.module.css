@@ -38,8 +38,14 @@
   display: none;
 }
 
+/* Menos zoom: imagem 10% maior que o container, centralizada → “vê mais” da foto */
 .heroBgImageMobile {
   display: block;
+  width: 110%;
+  height: 110%;
+  left: -5%;
+  top: -5%;
+  object-position: center 35%;
 }
 
 /* Overlay escuro para legibilidade do texto */
@@ -235,7 +241,7 @@
 @media (max-width: 768px) {
   .hero {
     justify-content: flex-end;
-    padding-bottom: 0.25rem;
+    padding-bottom: 2rem;
     min-height: 100vh;
   }
 
@@ -247,7 +253,8 @@
     flex: 1;
     padding-top: 0;
     justify-content: flex-end;
-    padding-bottom: 0.25rem;
+    padding-bottom: 2rem;
+    margin-top: 30vh; /* empurra título e botão para abaixo do meio da tela */
   }
 
   .heroContent {

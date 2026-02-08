@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -59,7 +60,14 @@ export default function Topbar({
       <div className={`${styles.inner} ${!logo ? styles.innerNoLogo : ""}`}>
         {logo ? (
           <Link href={logoHref} className={styles.logoLink} aria-label="Voltar ao início">
-            {logo}
+            <Image
+              src="/img/logo_novo.png"
+              alt={logo}
+              className={styles.logoImage}
+              width={160}
+              height={40}
+              priority
+            />
           </Link>
         ) : null}
 

@@ -180,6 +180,7 @@
   justify-content: space-between;
   gap: 0.75rem;
   padding-top: 1rem;
+  margin-top: auto;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -192,14 +193,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  padding: 0.5rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #000;
+  color: #fff;
+  background-color: #000;
+  border-radius: 0.375rem;
   text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  margin-left: auto;
 }
 
 .cardLink:hover {
-  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
 }
 
 .cardLinkIcon {

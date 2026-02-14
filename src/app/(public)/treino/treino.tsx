@@ -42,10 +42,11 @@ export default function Treino() {
                 <div className={styles.cardBody}>
                   <h2 className={styles.cardTitle}>{treino.title}</h2>
                   <p className={styles.cardDescription}>{treino.description}</p>
-                  <span className={styles.cardCta}>
-                    {TREINO.CARD_CTA}
-                    <span className={styles.cardCtaIcon} aria-hidden>→</span>
-                  </span>
+                  <div className={styles.cardCtaWrap}>
+                    <button type="button" className={styles.cardCtaEmBreve} disabled>
+                      {TREINO.CARD_CTA_EM_BREVE}
+                    </button>
+                  </div>
                 </div>
               </>
             );

@@ -10,8 +10,7 @@ export const ALUNOS = {
     "Antes e depois, tempo de projeto, evolução de peso e conquistas!",
 
   // —— Intro ——
-  INTRO_PARAGRAFO:
-    "Aqui você vê alguns dos resultados de quem treina com acompanhamento personalizado. Cada card mostra fotos antes e depois, duração do projeto, peso inicial e final, e o objetivo alcançado.",
+  INTRO_PARAGRAFO: "Aqui você vê alguns dos resultados de quem treina com acompanhamento personalizado. Cada card mostra fotos antes e depois, duração do projeto, peso inicial e final, e o objetivo alcançado.",
 
   // —— Seção de resultados ——
   SECAO_ARIA_LABEL: "Resultados dos alunos",
@@ -35,4 +34,9 @@ export const ALUNOS = {
   // —— Card: texto de variação de peso ——
   VARIACAO_KG_A_MENOS: (kg: number) => `${kg} kg a menos`,
   VARIACAO_KG_A_MAIS: (kg: number) => `${kg} kg a mais`,
+
+  // —— Estado vazio (sem resultados ainda) ——
+  EM_BREVE_TITULO: "Resultados em breve",
+  EM_BREVE_DESCRICAO:
+    "Em breve você verá aqui os resultados dos alunos. Fique de olho!",
 };

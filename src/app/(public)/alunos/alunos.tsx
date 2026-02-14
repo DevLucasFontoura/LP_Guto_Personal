@@ -95,9 +95,20 @@ export default function Alunos() {
         <p className={styles.intro}>{ALUNOS.INTRO_PARAGRAFO}</p>
 
         <section className={styles.grid} aria-label={ALUNOS.SECAO_ARIA_LABEL}>
-          {alunos.map((aluno) => (
-            <AlunoCard key={aluno.id} aluno={aluno} />
-          ))}
+          {alunos.length === 0 ? (
+            <article className={styles.cardEmBreve}>
+              <h2 className={styles.cardEmBreveTitle}>
+                {ALUNOS.EM_BREVE_TITULO}
+              </h2>
+              <p className={styles.cardEmBreveDescription}>
+                {ALUNOS.EM_BREVE_DESCRICAO}
+              </p>
+            </article>
+          ) : (
+            alunos.map((aluno) => (
+              <AlunoCard key={aluno.id} aluno={aluno} />
+            ))
+          )}
         </section>
       </main>
 

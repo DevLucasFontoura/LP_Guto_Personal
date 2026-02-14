@@ -9,7 +9,7 @@ export const HOME = {
   HERO_TITLE_LINHA_2: "SEUS SONHOS COMEÇA HOJE!",
   HERO_CTA_VER_PLANOS: "Veja nossos planos",
   HERO_IMAGE_DESKTOP_PATH: "/img/home/img_home.jpg",
-  HERO_IMAGE_MOBILE_PATH: "/img/home/img_home_vertical_01.png",
+  HERO_IMAGE_MOBILE_PATH: "/img/home/img_guto_original_amarelo.jpeg",
 
   // —— Sobre (seção sobre o personal) ——
   ABOUT_IMAGE_ALT: "Gutemberg - Personal Trainer",

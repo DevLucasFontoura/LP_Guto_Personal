@@ -5,6 +5,9 @@ import { useState, useEffect, useRef } from "react";
 import Topbar from "@/app/components/Topbar/topbar";
 import styles from "./publicHeader.module.css";
 
+const LOGO_SRC = "/img/logo_novo.png";
+const LOGO_ALT = "Guto Personal";
+
 const SCROLL_THRESHOLD = 60;
 const HIDE_AFTER_SCROLL = 80;
 const DESKTOP_BREAKPOINT = 769;
@@ -17,7 +20,7 @@ type PublicHeaderProps = {
 };
 
 /**
- * Header fixo no topo: nome "Gutemberg" + menu (Topbar).
+ * Header fixo no topo: logo (Guto Personal) + menu (Topbar).
  * Em todas as páginas públicas: transparente no topo, gradiente escuro ao rolar.
  * No desktop: esconde ao rolar para baixo, reaparece ao rolar para cima.
  */
@@ -55,8 +58,15 @@ export default function PublicHeader({ className, noSpacer = false }: PublicHead
         className={`${styles.header} ${scrolled ? styles.headerScrolled : ""} ${headerHidden ? styles.headerHidden : ""} ${className ?? ""}`.trim()}
         role="banner"
       >
-        <Link href="/" className={styles.name} aria-label="Gutemberg - Voltar ao início">
-          Gutemberg
+        <Link href="/" className={styles.name} aria-label="Guto Personal - Voltar ao início">
+          <img
+            src={LOGO_SRC}
+            alt={LOGO_ALT}
+            className={styles.nameLogo}
+            width={104}
+            height={104}
+            fetchPriority="high"
+          />
         </Link>
         <div className={styles.topbarWrap}>
           <Topbar logo="" />

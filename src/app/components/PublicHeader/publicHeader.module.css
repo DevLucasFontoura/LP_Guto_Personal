@@ -49,6 +49,8 @@
 
 .name {
   margin: 0;
+  display: block;
+  flex-shrink: 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(3rem, 12vw, 5.5rem);
   font-weight: 400;
@@ -61,6 +63,14 @@
 
 .name:hover {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.nameLogo {
+  display: block;
+  width: 6.5rem;
+  height: 6.5rem;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 .topbarWrap {

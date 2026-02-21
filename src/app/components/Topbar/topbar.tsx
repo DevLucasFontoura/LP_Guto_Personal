@@ -16,7 +16,7 @@ const MENU_ITEMS = [
 ] as const;
 
 export type TopbarProps = {
-  /** Texto do logo (padrão: "Gutemberg Personal") */
+  /** Texto alternativo do logo (padrão: "Guto Personal Trainer") */
   logo?: string;
   /** URL do link do logo (padrão: "/") */
   logoHref?: string;

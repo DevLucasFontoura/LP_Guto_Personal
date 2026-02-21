@@ -4,7 +4,41 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./topbar.module.css";
+
+const overlayVariants = {
+  open: { opacity: 1 },
+  closed: { opacity: 0 },
+};
+
+const menuListVariants = {
+  open: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.08,
+    },
+  },
+  closed: {
+    transition: {
+      staggerChildren: 0.04,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const itemVariants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" as const },
+  },
+  closed: {
+    opacity: 0,
+    y: -16,
+    transition: { duration: 0.2 },
+  },
+};
 
 const MENU_ITEMS = [
   { href: "/", label: "Início" },
@@ -82,9 +116,10 @@ export default function Topbar({
           <HamburgerIcon open={menuOpen} />
         </button>
 
+        {/* Desktop: nav dentro do inner */}
         <nav
           id="topbar-drawer"
-          className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
+          className={`${styles.nav} ${styles.navDesktop} ${menuOpen ? styles.navOpen : ""}`}
           aria-label="Menu principal"
         >
           <ul className={styles.menu}>
@@ -105,6 +140,7 @@ export default function Topbar({
         </nav>
       </div>
 
+      {/* Mobile: drawer em tela cheia (fora do inner para não ser limitado) */}
       {menuOpen && (
         <button
           type="button"
@@ -113,6 +149,65 @@ export default function Topbar({
           aria-label="Fechar menu"
         />
       )}
+
+      {/* Mobile: clone do menu em tela cheia com animação em cascata */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            id="topbar-drawer-fullscreen"
+            className={`${styles.navFullscreen} ${styles.navFullscreenOpen}`}
+            aria-label="Menu principal"
+            aria-hidden={false}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={overlayVariants}
+            transition={{ duration: 0.2 }}
+          >
+            {logo ? (
+              <Link
+                href={logoHref}
+                className={styles.fullscreenLogoLink}
+                aria-label="Voltar ao início"
+                onClick={closeMenu}
+              >
+                <Image
+                  src="/img/logo_novo.png"
+                  alt={logo}
+                  className={styles.fullscreenLogoImage}
+                  width={120}
+                  height={120}
+                  priority
+                />
+              </Link>
+            ) : null}
+            <motion.ul
+              className={styles.menu}
+              variants={menuListVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+            >
+              {MENU_ITEMS.map(({ href, label }) => (
+                <motion.li
+                  key={href}
+                  className={styles.menuItem}
+                  variants={itemVariants}
+                >
+                  <Link
+                    href={href}
+                    className={pathname === href ? styles.menuLinkActive : styles.menuLink}
+                    aria-current={pathname === href ? "page" : undefined}
+                    onClick={closeMenu}
+                  >
+                    {label}
+                  </Link>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

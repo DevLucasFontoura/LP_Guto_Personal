@@ -227,15 +227,161 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  z-index: 0;
-  background: rgba(0, 0, 0, 0.4);
+  z-index: 9997;
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   cursor: pointer;
 }
 
+/* Mobile: menu em tela cheia (fora do inner, cobre a viewport) */
+.navFullscreen {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .navFullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    padding-top: max(1rem, env(safe-area-inset-top, 0px));
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+    background-color: #0f0f0f;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s, visibility 0.25s;
+    box-sizing: border-box;
+  }
+
+  .navFullscreen.navFullscreenOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Logo no canto superior esquerdo do menu fullscreen */
+  .fullscreenLogoLink {
+    position: absolute;
+    top: max(1rem, env(safe-area-inset-top, 0px));
+    left: max(1.5rem, env(safe-area-inset-left, 0px));
+    display: block;
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  .fullscreenLogoImage {
+    display: block;
+    width: 5rem;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Botão X branco, bem visível no canto superior direito (menu escuro) */
+  .closeFullscreen {
+    position: absolute;
+    top: max(1.25rem, env(safe-area-inset-top, 0px));
+    right: max(1.25rem, env(safe-area-inset-right, 0px));
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    z-index: 10;
+  }
+
+  .closeFullscreen:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .closeFullscreen:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  .closeFullscreen span {
+    display: block;
+    font-weight: 300;
+    margin-top: -0.12em;
+  }
+
+  /* Lista de itens ocupa o resto da tela e distribui os links */
+  .navFullscreen .menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 5rem 0 2rem;
+    list-style: none;
+    min-height: 0;
+  }
+
+  .navFullscreen .menuItem {
+    flex: 0 0 auto;
+  }
+
+  .navFullscreen .menuItem .separator {
+    display: none;
+  }
+
+  .navFullscreen .menuLink,
+  .navFullscreen .menuLinkActive {
+    display: block;
+    padding: clamp(0.75rem, 3vh, 1.25rem) 1rem;
+    font-size: clamp(1.0625rem, 4vw, 1.25rem);
+    text-align: center;
+    border-radius: 0.5rem;
+    color: #fff;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .navFullscreen .menuLink:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .navFullscreen .menuLinkActive {
+    color: var(--color-home-page);
+    font-weight: 600;
+  }
+
+  .navFullscreen .menuLinkActive:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--color-home-page);
+  }
+
   .topbar {
     align-items: flex-end;
+    z-index: 10000;
   }
 
   .inner {
@@ -243,10 +389,12 @@
     max-width: none;
     justify-content: center;
     padding: 0.375rem;
-    background-color: #fff;
+    background-color: #555555;
     border-radius: 0.5rem;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     backdrop-filter: none;
+    position: relative;
+    z-index: 9999;
   }
 
   .logoLink {
@@ -256,6 +404,8 @@
   .menuTrigger {
     display: flex;
     color: #000;
+    position: relative;
+    z-index: 10;
   }
 
   .menuTrigger:hover {
@@ -263,37 +413,13 @@
     color: #000;
   }
 
+  /* No mobile o nav dentro do inner fica escondido; usamos o .navFullscreen */
+  .navDesktop {
+    display: none !important;
+  }
+
   .nav {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: auto;
-    min-width: 12rem;
-    margin-top: 0.5rem;
-    padding: 1rem 1.25rem;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-    z-index: 1;
-  }
-
-  .nav.navOpen {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .menu {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 0;
-    align-items: stretch;
+    /* reset para o nav dentro do inner no mobile (não usado) */
   }
 
   .menuItem {
@@ -339,16 +465,14 @@
   .inner {
     padding: 0.375rem;
   }
-
-  .nav {
-    right: 0;
-    left: auto;
-    margin-top: 0.5rem;
-  }
 }
 
-/* Desktop: forçar texto preto e fonte maior */
+/* Desktop: menu normal (nav dentro do inner); fullscreen escondido */
 @media (min-width: 769px) {
+  .navFullscreen {
+    display: none !important;
+  }
+
   .inner .logoLink {
     color: #000;
     font-size: 1.375rem;

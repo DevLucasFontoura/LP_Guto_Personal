@@ -418,10 +418,6 @@
     display: none !important;
   }
 
-  .nav {
-    /* reset para o nav dentro do inner no mobile (não usado) */
-  }
-
   .menuItem {
     flex-direction: column;
     align-items: stretch;

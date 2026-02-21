@@ -263,14 +263,14 @@
     padding-bottom: 1rem;
   }
 
-  /* Só mobile: imagem fundo à esquerda */
-  .heroBgImageDesktop img,
-  .heroBgImageMobile img {
-    object-position: 38% 35% !important;
+  /* Só mobile: imagem fundo à esquerda, um pouco mais para baixo (wrapper + img) */
+  .heroBgImageMobile {
+    object-position: 38% 40%;
   }
 
+  .heroBgImageDesktop img,
   .heroBgImageMobile img {
-    object-position: 35% 15% !important;
+    object-position: 38% 40% !important;
   }
 
   .heroInner {

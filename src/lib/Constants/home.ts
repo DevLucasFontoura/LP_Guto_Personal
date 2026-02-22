@@ -28,6 +28,17 @@ export const HOME = {
   NUMBERS_CTA_CONVITE:
     "Venha fazer parte da nossa família e conquiste o seu corpo dos sonhos!",
 
+  // —— Patrocinadores (entre Números e Instagram) ——
+  SPONSORS_TITULO: "Nossos",
+  SPONSORS_TITULO_DESTAQUE: "Patrocinadores",
+  SPONSORS_SUBTITULO: "Quem apoia nosso trabalho",
+  /** Lista de patrocinadores: nome, caminho do logo (em /public), link opcional. Substitua placeholder.svg pelos logos reais. */
+  SPONSORS: [
+    { name: "Patrocinador 1", logoPath: "/img/sponsors/placeholder.svg", url: "https://example.com" },
+    { name: "Patrocinador 2", logoPath: "/img/sponsors/placeholder.svg", url: "https://example.com" },
+    { name: "Patrocinador 3", logoPath: "/img/sponsors/placeholder.svg" },
+  ] as { name: string; logoPath: string; url?: string }[],
+
   // —— Instagram ——
   INSTAGRAM_TITULO_PREFIXO: "Me siga no",
   INSTAGRAM_TITULO_DESTAQUE: "Instagram",

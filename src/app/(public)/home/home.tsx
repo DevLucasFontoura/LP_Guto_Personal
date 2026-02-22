@@ -31,6 +31,7 @@ export default function Home() {
             priority
             className={styles.heroBgImageMobile}
             sizes="100vw"
+            style={{ objectPosition: "var(--hero-mobile-object-position, 28% 40%)" }}
           />
         </div>
         <div className={styles.heroInner}>
@@ -101,6 +102,46 @@ export default function Home() {
           </div>
         </div>
         <p className={styles.numbersCta}>{HOME.NUMBERS_CTA_CONVITE}</p>
+      </section>
+
+      {/* Patrocinadores */}
+      <section id="patrocinadores" className={styles.sponsors}>
+        <h2 className={styles.sponsorsTitle}>
+          {HOME.SPONSORS_TITULO}{" "}
+          <span className={styles.sponsorsTitleHighlight}>{HOME.SPONSORS_TITULO_DESTAQUE}</span>
+        </h2>
+        <p className={styles.sponsorsSubtitle}>{HOME.SPONSORS_SUBTITULO}</p>
+        <div className={styles.sponsorsGrid}>
+          {HOME.SPONSORS.map((sponsor) => (
+            <div key={sponsor.name} className={styles.sponsorItem}>
+              {sponsor.url ? (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.sponsorLink}
+                  aria-label={`Ir ao site de ${sponsor.name}`}
+                >
+                  <Image
+                    src={sponsor.logoPath}
+                    alt={sponsor.name}
+                    width={160}
+                    height={80}
+                    className={styles.sponsorLogo}
+                  />
+                </a>
+              ) : (
+                <Image
+                  src={sponsor.logoPath}
+                  alt={sponsor.name}
+                  width={160}
+                  height={80}
+                  className={styles.sponsorLogo}
+                />
+              )}
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Redes sociais — Instagram */}

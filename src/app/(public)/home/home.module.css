@@ -257,19 +257,26 @@
     justify-content: flex-end;
     padding-bottom: 0;
     min-height: 70vh; /* só mobile: seção 2 sobe mais */
+    /* Vertical: object-position. Horizontal: translateX (object-position X não tem efeito com contain) */
+    --hero-mobile-object-position: 28% 62%;
+    --hero-mobile-translate-x: -3.5%;
   }
 
   .heroHeader {
     padding-bottom: 1rem;
   }
 
-  /* Só mobile: imagem fundo à esquerda, um pouco mais para baixo (wrapper + img) */
+  /* Só mobile: posição vertical via object-position; horizontal via translateX */
   .heroBgImageMobile {
-    object-position: 38% 40%;
+    transform: scale(1.10) translateX(var(--hero-mobile-translate-x, 0));
   }
 
-  .heroBgImageDesktop img,
+  .heroBgImageMobile,
   .heroBgImageMobile img {
+    object-position: var(--hero-mobile-object-position, 28% 40%) !important;
+  }
+
+  .heroBgImageDesktop img {
     object-position: 38% 40% !important;
   }
 
@@ -399,6 +406,87 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   background-color: #333;
+}
+
+/* ========== Patrocinadores ========== */
+.sponsors {
+  width: 100%;
+  padding: 4rem 1.5rem 5rem;
+  background: #6d6d6d79;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.sponsorsTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.sponsorsTitleHighlight {
+  color: var(--color-home-page);
+}
+
+.sponsorsSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 0.5rem;
+}
+
+.sponsorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem 3rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.sponsorItem {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsorLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.sponsorLink:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.sponsorLogo {
+  width: auto;
+  height: 4rem;
+  max-width: 10rem;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
+
+@media (max-width: 640px) {
+  .sponsorsGrid {
+    gap: 2rem;
+  }
+
+  .sponsorLogo {
+    height: 3.25rem;
+    max-width: 8rem;
+  }
 }
 
 /* ========== Redes sociais — Instagram ========== */
